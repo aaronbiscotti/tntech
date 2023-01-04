@@ -7,9 +7,9 @@ import Terms from './components/Terms.jsx';
 const App = () => {
   return (
     <div>
-      {/* <Home/> */}
+      <Home/>
       {/* <About/> */}
-      <Terms/>
+      {/* <Terms/> */}
     </div>
   )
 }
