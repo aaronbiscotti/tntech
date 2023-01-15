@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react"
+import Image from "next/image"
 import TextTransition, { presets } from "react-text-transition"
 import { Container } from '@/components/Container'
-
 const TEXTS = [
   "LEAGUE OF LEGENDS",
   "GRAND THEFT AUTO V",
@@ -25,20 +25,10 @@ export function PrimaryFeatures() {
     <section
       id="features"
       aria-labelledby="features-title"
-      className="relative pt-20 pb-28 sm:py-[170px] bg-[#222646]"
+      className="relative overflow-hidden bg-no-repeat bg-cover pt-20 pb-28 sm:py-[170px] bg-background bg-right-bottom" 
     >
-      {/* <div className="absolute top-1/2 left-1/2 -translate-x-[44%] -translate-y-[42%]">
-        <Image
-          src={backgroundImage}
-          alt=""
-          width={2245}
-          height={1636}
-          layout="fixed"
-          unoptimized
-        />
-      </div> */}
       <Container className="relative">
-        <div className="max-w-2xl mt-20 md:text-left xl:max-w-none">
+        <div className="max-w-2xl mt-40 mb-20 md:text-left xl:max-w-none">
           <h2
             id="features-title"
             className="text-4xl text-white sm:text-5xl md:text-7xl max-w-xl font-[Anton]"

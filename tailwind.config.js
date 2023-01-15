@@ -30,6 +30,10 @@ module.exports = {
       maxWidth: {
         '2xl': '40rem',
       },
+      backgroundImage: {
+        'background': "url('/background.png')",
+        'background2': "url('/background2.png')",
+      }
     },
   },
   plugins: [require('@tailwindcss/forms')],
