@@ -7,9 +7,6 @@ import { Container } from '@/components/Container'
 import iteration1 from '@/images/screenshots/iteration1.png'
 import iteration2 from '@/images/screenshots/iteration2.png'
 import iteration3 from '@/images/screenshots/iteration3.png'
-import fire from '@/images/fire.svg'
-import water from '@/images/water.svg'
-import earth from '@/images/earth.svg'
 
 const features = [
   {
@@ -159,7 +156,6 @@ function FeaturesDesktop() {
                       'opacity-60': featureIndex !== selectedIndex,
                     }
                   )}
-                  style={{ transform: `translateX(-${selectedIndex * 100}%)` }}
                   aria-hidden={featureIndex !== selectedIndex}
                 >
                   <div className="rounded-xl">

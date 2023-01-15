@@ -3,10 +3,13 @@ import Image from "next/image"
 import TextTransition, { presets } from "react-text-transition"
 import { Container } from '@/components/Container'
 const TEXTS = [
-  "LEAGUE OF LEGENDS",
+  "YOUR GO-TO GAMES",
+  "CYBERPUNK 2077",
   "GRAND THEFT AUTO V",
   "OVERWATCH",
-  "SPIDER-MAN"
+  "ELDEN RING",
+  "CALL OF DUTY",
+  "FORTNITE",
 ]
 
 export function PrimaryFeatures() {
