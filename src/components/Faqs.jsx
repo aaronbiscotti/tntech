@@ -52,7 +52,7 @@ export function Faqs() {
       </h2>
       <Container className="relative">
         <div className="mx-auto max-w-3xl lg:mx-0">
-          <p className="font-[Anton] text-3xl text-white sm:text-6xl">
+          <p className="font-[Anton] text-3xl uppercase text-white sm:text-6xl">
             Frequently asked questions
           </p>
           <p className="mt-4 text-lg tracking-tight text-white">
