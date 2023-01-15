@@ -26,6 +26,7 @@ module.exports = {
       fontFamily: {
         sans: ['Open Sans', ...defaultTheme.fontFamily.sans],
         display: ['Hanken Grotesk'],
+        title: ['Anton'],
       },
       maxWidth: {
         '2xl': '40rem',
@@ -33,6 +34,9 @@ module.exports = {
       backgroundImage: {
         'background': "url('/background.png')",
         'background2': "url('/background2.png')",
+      },
+      colors: {
+        'main': '#222646'
       }
     },
   },

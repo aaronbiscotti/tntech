@@ -36,7 +36,7 @@ export function PrimaryFeatures() {
             id="features-title"
             className="text-4xl text-white sm:text-5xl md:text-7xl max-w-xl font-[Anton]"
           >
-            EVERYTHING YOU NEED TO RUN <TextTransition springConfig={presets.stiff}>{TEXTS[index % TEXTS.length]}</TextTransition>
+            EVERYTHING YOU NEED TO RUN <TextTransition springConfig={presets.stiff} inline>{TEXTS[index % TEXTS.length]}</TextTransition>
           </h2>
           <p className="text-lg mt-5 max-w-md text-white">
             Well everything you need if you aren’t that picky about minor

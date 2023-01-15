@@ -63,7 +63,7 @@ export function Testimonials() {
         <div className="mx-auto max-w-2xl md:text-center">
           <h2
             id="testimonials-title"
-            className="font-display text-3xl tracking-tight text-slate-900 sm:text-4xl"
+            className="font-[Anton] uppercase text-4xl text-main sm:text-6xl"
           >
             Loved by gamers worldwide.
           </h2>

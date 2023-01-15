@@ -10,10 +10,10 @@ import iteration3 from '@/images/screenshots/iteration3.png'
 
 const features = [
   {
-    name: 'Fire',
+    name: 'Noob',
     summary: 'Cutting-edge performance.',
     description:
-      'These computers prioritize powerful CPU, GPU, and sufficient memory and storage to ensure fast and responsive gameplay.',
+      'Designed for those who are first starting to game. These computers prioritize powerful CPU, GPU, and sufficient memory and storage to ensure fast and responsive gameplay.',
     image: iteration1,
     icon: function ReportingIcon() {
       let id = useId()
@@ -28,7 +28,7 @@ const features = [
     },
   },
   {
-    name: 'Water',
+    name: 'Casual',
     summary:
       'Next-generation graphics.',
     description:
@@ -46,7 +46,7 @@ const features = [
     },
   },
   {
-    name: 'Earth',
+    name: 'Prodigy',
     summary:
       'Wide range expandability',
     description:
@@ -74,7 +74,7 @@ function Feature({ feature, isActive, className, ...props }) {
     >
       <div
         className={clsx('w-9 rounded-lg', {
-          'bg-[#222646]': isActive,
+          'bg-main': isActive,
           'bg-slate-500': !isActive,
         })}
       >

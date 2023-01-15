@@ -100,8 +100,8 @@ export function Header() {
         <nav className="relative z-50 text-sm">
           <ul className="flex items-center">
             <li>
-              <Link href="#">
-                <img src="/logo.svg" className="h-15 w-auto" />
+              <Link href="/">
+                <img src="/logo.svg" className="h-15 w-auto cursor-pointer" />
               </Link>
             </li>
             <li className="ml-12 hidden md:block">
@@ -119,7 +119,7 @@ export function Header() {
               </Link>
             </li>
             <li className="ml-auto hidden md:block">
-              <ButtonLink href="/register" color="blue">
+              <ButtonLink href="/build-your-pc" color="blue">
                 <span>
                   Start building<span className="hidden lg:inline"> today</span>
                 </span>

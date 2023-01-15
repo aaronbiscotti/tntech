@@ -51,8 +51,8 @@ export function Faqs() {
         Frequently asked questions
       </h2>
       <Container className="relative">
-        <div className="mx-auto max-w-2xl lg:mx-0">
-          <p className="font-display text-3xl tracking-tight text-white sm:text-4xl">
+        <div className="mx-auto max-w-3xl lg:mx-0">
+          <p className="font-[Anton] text-3xl text-white sm:text-6xl">
             Frequently asked questions
           </p>
           <p className="mt-4 text-lg tracking-tight text-white">
@@ -66,7 +66,7 @@ export function Faqs() {
               <ul className="space-y-8">
                 {column.map((faq, faqIndex) => (
                   <li key={faqIndex}>
-                    <h3 className="font-display text-lg leading-7 text-white">
+                    <h3 className="font-display text-lg leading-7 font-bold text-white">
                       {faq.question}
                     </h3>
                     <p className="mt-4 text-sm text-white">{faq.answer}</p>
