@@ -3,7 +3,7 @@ import Image from "next/image"
 import TextTransition, { presets } from "react-text-transition"
 import { Container } from '@/components/Container'
 const TEXTS = [
-  "YOUR GO-TO GAMES",
+  "YOUR FAVORITE GAME",
   "CYBERPUNK 2077",
   "GRAND THEFT AUTO V",
   "OVERWATCH",
