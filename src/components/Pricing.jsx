@@ -21,7 +21,7 @@ export function Pricing() {
         <div className="grid bg-slate-50 sm:px-6 sm:pb-16 md:grid-cols-3 md:rounded-6xl md:px-8 md:pt-16 lg:p-20">
           <div className="flex flex-col px-4 py-16 sm:px-10 md:py-12 lg:px-12">
             <h3 className="mt-7 text-lg font-semibold tracking-tight text-main">
-              Noob
+              Starter
             </h3>
             <p className="mt-2 text-lg tracking-tight text-slate-600">
               The perfect starting point if you’re on a budget.
@@ -59,7 +59,7 @@ export function Pricing() {
               </ul>
             </div>
             <ButtonLink
-              href="/build-your-pc"
+              href="/build-your-pc/starter"
               color="slate"
               className="mt-8 bg-main"
               aria-label="Start building with the beginner plan"
@@ -108,7 +108,7 @@ export function Pricing() {
                 </ul>
               </div>
               <ButtonLink
-                href="/build-your-pc"
+                href="/build-your-pc/casual"
                 color="white"
                 className="mt-8"
                 aria-label="Start building with the casual and experienced plan"
@@ -157,7 +157,7 @@ export function Pricing() {
               </ul>
             </div>
             <ButtonLink
-              href="/build-your-pc"
+              href="/build-your-pc/prodigy"
               color="slate"
               className="mt-8 bg-main"
               aria-label="Start building with the prodigy plan"

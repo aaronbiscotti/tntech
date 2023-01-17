@@ -1,19 +1,12 @@
 import { Fragment, useState } from 'react'
 import { Dialog, Disclosure, Menu, Popover, Tab, Transition } from '@headlessui/react'
 import { MenuIcon, QuestionMarkCircleIcon, SearchIcon, ShoppingBagIcon, XIcon } from '@heroicons/react/outline'
-import { ChevronDownIcon } from '@heroicons/react/solid'
 import { Header } from '@/components/Header'
 import { Footer } from '@/components/Footer'
 import { storefront } from 'utils'
 import Link from 'next/link'
 import banner from '@/images/banner.png'
 import Image from 'next/image'
-
-
-
-function classNames(...classes) {
-    return classes.filter(Boolean).join(' ')
-}
 
 export default function starter({ products }) {
     console.log(products);
@@ -186,26 +179,26 @@ const gql = String.raw
 
 const productsQuery = gql`
     query Products {
-        products(first:3) {
-        edges {
-            node {
-            title
-            handle
-            priceRange {
-                minVariantPrice {
-                amount
-                }
-            }
-            images(first: 1) {
-                edges {
+        products(first:100, query:"tag:starter") {
+            edges {
                 node {
-                    transformedSrc
-                    altText
+                title
+                handle
+                priceRange {
+                    minVariantPrice {
+                    amount
+                    }
+                }
+                images(first: 1) {
+                    edges {
+                    node {
+                        transformedSrc
+                        altText
+                    }
+                    }
                 }
                 }
             }
-            }
-        }
         }
     }
 `

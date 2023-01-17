@@ -105,16 +105,23 @@ export function Header() {
               </Link>
             </li>
             <li className="ml-12 hidden md:block">
-              <Link href="#features">
+              <Link href="/build-your-pc/starter">
                 <a className="rounded-lg py-1 px-2 text-white">
-                  Features
+                  Starter Collection
                 </a>
               </Link>
             </li>
             <li className="ml-6 hidden md:block">
-              <Link href="#testimonials">
+              <Link href="/build-your-pc/casual">
                 <a className="rounded-lg py-1 px-2 text-white">
-                  Testimonials
+                  Casual Collection
+                </a>
+              </Link>
+            </li>
+            <li className="ml-6 hidden md:block">
+              <Link href="/build-your-pc/prodigy">
+                <a className="rounded-lg py-1 px-2 text-white">
+                  Prodigy Collection
                 </a>
               </Link>
             </li>

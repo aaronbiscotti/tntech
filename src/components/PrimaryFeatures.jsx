@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react"
 import Image from "next/image"
 import TextTransition, { presets } from "react-text-transition"
 import { Container } from '@/components/Container'
+import Link from "next/link"
 const TEXTS = [
   "YOUR FAVORITE GAME",
   "CYBERPUNK 2077",
@@ -42,10 +43,12 @@ export function PrimaryFeatures() {
             Well everything you need if you aren’t that picky about minor
             details.
           </p>
-          <button className="flex justify-center items-center space-x-5 text-white text-xl mt-10 hover:translate-y-2 duration-100 ease-in-out;">
-            <img src="/arrow.svg" />
-            <h1>EXPLORE MORE</h1>
-          </button>
+          <a href="#get-started-today">
+            <button className="flex font-display justify-center items-center space-x-5 text-white text-xl mt-10 hover:translate-y-2 duration-100 ease-in-out">
+              <img src="/arrow.svg" />
+              <h1>EXPLORE MORE</h1>
+            </button>
+          </a>
         </div>
         <div className="absolute top-1/3 left-1/3 translate-x-[10%] -translate-y-[42%]">
           <img src="/hero_image.png" className="h-full" />
