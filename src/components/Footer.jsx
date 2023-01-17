@@ -20,8 +20,8 @@ export function Footer() {
               <h3 className="text-[12px] text-gray-400 font-bold mb-[30px]">
                 Information
               </h3>
-              {information.map(page => (
-                <div>
+              {information.map((page, i) => (
+                <div key={i}>
                   <a className="text-[12px] font-light" href={page.link}>
                     {page.name}
                   </a>
@@ -33,8 +33,8 @@ export function Footer() {
               <h3 className="text-[12px] text-gray-400 font-bold mb-[30px]">
                 About
               </h3>
-              {desktopPCs.map(page => (
-                <div>
+              {desktopPCs.map((page, i) => (
+                <div key={i}>
                   <a className="text-[12px] font-light" href={page.link}>
                     {page.name}
                   </a>
@@ -46,8 +46,8 @@ export function Footer() {
               <h3 className="text-[12px] text-gray-400 font-bold mb-[30px]">
                 Laptops
               </h3>
-              {laptops.map(page => (
-                <div>
+              {laptops.map((page, i) => (
+                <div key={i}>
                   <a className="text-[12px] font-light" href={page.link}>
                     {page.name}
                   </a>
