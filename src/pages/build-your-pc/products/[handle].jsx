@@ -10,6 +10,7 @@ export default function ProductPage({ product }) {
     const images = product.images.edges
     const variantId = product.variants.edges[0].node.id
     const [isLoading, setIsLoading] = useState(false);
+    console.log(variantId);
     const transform = (node, index) => {
         if (node.type === 'tag' && node.name === 'li') {
             return (
@@ -19,16 +20,12 @@ export default function ProductPage({ product }) {
             );
         }
     };
-    const checkout = async () => {
+    const checkout = async (variantId) => {
         setIsLoading(true);
         const { data } = await storefront(checkoutMutation, { variantId });
         const { webUrl } = data.checkoutCreate.checkout;
 
-        console.log(webUrl); // log the webUrl value
-        console.log(data); // log the data object
-
-        const router = useRouter();
-        router.push(webUrl);
+        window.location.href = webUrl;
     };
     return (
         <>
@@ -57,7 +54,7 @@ export default function ProductPage({ product }) {
                         <div className="mt-4 lg:row-span-3 lg:mt-0">
                             <form>
                                 <button
-                                    onClick={checkout}
+                                    onClick={() => checkout(variantId)}
                                     type="submit"
                                     className="flex w-full items-center justify-center rounded-md border border-transparent bg-main py-3 px-8 text-base font-medium duration-100 ease-in text-white hover:bg-indigo-800 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2"
                                 >
@@ -151,8 +148,8 @@ const checkoutMutation = gql`
         checkoutCreate(input: {
             lineItems: {
                 variantId: $variantId,
-                quantity: 1,
-            }
+                quantity: 1
+            } 
         }) {
             checkout {
                 webUrl
