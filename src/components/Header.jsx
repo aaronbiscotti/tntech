@@ -95,7 +95,7 @@ function MobileNavigation() {
 
 export function Header() {
   return (
-    <header className="py-10 z-10 w-full absolute">
+    <header className="py-10 z-10 w-full absolute font-display">
       <Container className="relative">
         <nav className="relative z-50 text-sm">
           <ul className="flex items-center">

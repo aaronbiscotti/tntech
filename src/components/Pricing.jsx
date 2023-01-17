@@ -59,7 +59,7 @@ export function Pricing() {
               </ul>
             </div>
             <ButtonLink
-              href="#"
+              href="/build-your-pc"
               color="slate"
               className="mt-8 bg-main"
               aria-label="Start building with the beginner plan"
@@ -108,7 +108,7 @@ export function Pricing() {
                 </ul>
               </div>
               <ButtonLink
-                href="#"
+                href="/build-your-pc"
                 color="white"
                 className="mt-8"
                 aria-label="Start building with the casual and experienced plan"
@@ -157,7 +157,7 @@ export function Pricing() {
               </ul>
             </div>
             <ButtonLink
-              href="#"
+              href="/build-your-pc"
               color="slate"
               className="mt-8 bg-main"
               aria-label="Start building with the prodigy plan"

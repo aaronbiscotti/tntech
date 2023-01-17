@@ -7,10 +7,12 @@ import { Container } from '@/components/Container'
 import iteration1 from '@/images/screenshots/iteration1.png'
 import iteration2 from '@/images/screenshots/iteration2.png'
 import iteration3 from '@/images/screenshots/iteration3.png'
+import Link from 'next/link'
 
 const features = [
   {
     name: 'Noob',
+    link: '/build-your-pc/starter',
     summary: 'Cutting-edge performance.',
     description:
       'Designed for those who are first starting to game. These computers prioritize powerful CPU, GPU, and sufficient memory and storage to ensure fast and responsive gameplay.',
@@ -19,7 +21,7 @@ const features = [
       let id = useId()
       return (
         <>
-          <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-flame" width="28" height="28" viewBox="0 0 24 24" stroke-width="2" stroke="white" fill="none" stroke-linecap="round" stroke-linejoin="round">
+          <svg xmlns="http://www.w3.org/2000/svg" className="icon icon-tabler icon-tabler-flame" width="28" height="28" viewBox="0 0 24 24" stroke-width="2" stroke="white" fill="none" stroke-linecap="round" stroke-linejoin="round">
             <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
             <path d="M12 12c2 -2.96 0 -7 -1 -8c0 3.038 -1.773 4.741 -3 6c-1.226 1.26 -2 3.24 -2 5a6 6 0 1 0 12 0c0 -1.532 -1.056 -3.94 -2 -5c-1.786 3 -2.791 3 -4 2z"></path>
           </svg>
@@ -29,6 +31,7 @@ const features = [
   },
   {
     name: 'Casual',
+    link: '/build-your-pc/casual',
     summary:
       'Next-generation graphics.',
     description:
@@ -37,7 +40,7 @@ const features = [
     icon: function InventoryIcon() {
       return (
         <>
-          <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-droplet" width="28" height="28" viewBox="0 0 24 24" stroke-width="2" stroke="white" fill="none" stroke-linecap="round" stroke-linejoin="round">
+          <svg xmlns="http://www.w3.org/2000/svg" className="icon icon-tabler icon-tabler-droplet" width="28" height="28" viewBox="0 0 24 24" stroke-width="2" stroke="white" fill="none" stroke-linecap="round" stroke-linejoin="round">
             <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
             <path d="M6.8 11a6 6 0 1 0 10.396 0l-5.197 -8l-5.2 8z"></path>
           </svg>
@@ -47,6 +50,7 @@ const features = [
   },
   {
     name: 'Prodigy',
+    link: '/build-your-pc/prodigy',
     summary:
       'Wide range expandability',
     description:
@@ -55,7 +59,7 @@ const features = [
     icon: function ContactsIcon() {
       return (
         <>
-          <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-mountain" width="28" height="28" viewBox="0 0 24 24" stroke-width="2" stroke="white" fill="none" stroke-linecap="round" stroke-linejoin="round">
+          <svg xmlns="http://www.w3.org/2000/svg" className="icon icon-tabler icon-tabler-mountain" width="28" height="28" viewBox="0 0 24 24" stroke-width="2" stroke="white" fill="none" stroke-linecap="round" stroke-linejoin="round">
             <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
             <path d="M3 20h18l-6.921 -14.612a2.3 2.3 0 0 0 -4.158 0l-6.921 14.612z"></path>
             <path d="M7.5 11l2 2.5l2.5 -2.5l2 3l2.5 -2"></path>
@@ -133,7 +137,7 @@ function FeaturesDesktop() {
                 feature={{
                   ...feature,
                   name: (
-                    <Tab className="[&:not(:focus-visible)]:focus:outline-none">
+                    <Tab className="[&:not(:hover-visible)]:hover:outline-none">
                       <span className="absolute inset-0" />
                       {feature.name}
                     </Tab>
@@ -147,25 +151,27 @@ function FeaturesDesktop() {
           <Tab.Panels className="relative mt-20 overflow-hidden rounded-4xl bg-slate-200 px-14 py-16 xl:px-16">
             <div className="-mx-5 flex">
               {features.map((feature, featureIndex) => (
-                <Tab.Panel
-                  static
-                  key={feature.name}
-                  className={clsx(
-                    'px-5 transition duration-500 ease-in-out [&:not(:focus-visible)]:focus:outline-none',
-                    {
-                      'opacity-60': featureIndex !== selectedIndex,
-                    }
-                  )}
-                  aria-hidden={featureIndex !== selectedIndex}
-                >
-                  <div className="rounded-xl">
-                    <Image
-                      src={feature.image}
-                      alt=""
-                      className="object-contain"
-                    />
-                  </div>
-                </Tab.Panel>
+                <Link href={feature.link}>
+                  <Tab.Panel
+                    static
+                    key={feature.name}
+                    className={clsx(
+                      'px-5 transition duration-500 ease-in-out [&:not(:hover-visible)]:hover:outline-none hover:opacity-100',
+                      {
+                        'opacity-60': featureIndex !== selectedIndex,
+                      }
+                    )}
+                    aria-hidden={featureIndex !== selectedIndex}
+                  >
+                    <div className="rounded-xl cursor-pointer hover:opacity-100">
+                      <Image
+                        src={feature.image}
+                        alt=""
+                        className="object-contain"
+                      />
+                    </div>
+                  </Tab.Panel>
+                </Link>
               ))}
             </div>
             <div className="pointer-events-none absolute inset-0 rounded-4xl ring-1 ring-inset ring-slate-900/10" />
@@ -187,12 +193,12 @@ export function SecondaryFeatures() {
         <div className="mx-auto max-w-2xl md:text-center">
           <h2
             id="secondary-features-title"
-            className="font-display text-3xl tracking-tight text-slate-900 sm:text-4xl"
+            className="font-[Anton] text-3xl uppercase text-main sm:text-6xl"
           >
             Change the way you game.
           </h2>
-          <p className="mt-4 text-lg tracking-tight text-slate-700">
-            Elevate your gaming experience with TNTech. From performance to energy efficiency, we have a wide range of options to choose from.
+          <p className="mt-4 text-lg tracking-tight text-main">
+            Elevate your gaming experience with TNTech. From performance to energy efficiency, choose from three tiers of complexity to best suit your gaming needs.
           </p>
         </div>
         <FeaturesMobile />

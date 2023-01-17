@@ -2,7 +2,7 @@ import Head from 'next/head'
 import { Header } from '@/components/Header'
 import { SecondaryFeatures } from '@/components/SecondaryFeatures'
 
-export default function Home() {
+export default function casual() {
     return (
         <>
             <Head>
@@ -14,8 +14,7 @@ export default function Home() {
             </Head>
             <Header />
             <main>
-                <div className="relative overflow-hidden bg-no-repeat bg-cover bg-center bg-background h-[140px]" />
-                <SecondaryFeatures />
+                <div className="relative overflow-hidden bg-no-repeat bg-cover bg-center bg-background h-[140px]"></div>
             </main>
         </>
     )
