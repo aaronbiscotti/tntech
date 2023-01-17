@@ -21,20 +21,18 @@ export default function ProductPage({ product }) {
             <div className="relative overflow-hidden bg-no-repeat bg-cover bg-center bg-background h-[140px]" />
             <div className="bg-white">
                 <div className="pt-6">
-                    {/* Image gallery */}
-                    <div className="mx-auto mt-6 max-w-2xl sm:px-6 lg:grid lg:max-w-7xl lg:grid-cols-3 lg:gap-x-8 lg:px-8">
-                        {images.map((image, i) => (
-                            <div className="aspect-w-3 aspect-h-4 mb-6 hidden overflow-hidden rounded-lg lg:block">
-                                <img
-                                    src={image.node.url}
-                                    key={i}
-                                    alt={image.altText}
-                                    className="h-full w-full object-cover object-center"
-                                />
-                            </div>)
-                        )}
+                    <div className="flex mx-auto mt-6 max-w-2xl sm:px-6 lg:grid lg:max-w-7xl lg:grid-cols-6 lg:gap-x-8 lg:px-8">
+                        <div className="flex flex-col">
+                            {images.map((image, i) => (
+                                <img key={i} src={image.node.url} alt={image.altText} className="w-full object-cover cursor-pointer rounded-lg mb-4" onClick={() => {
+                                    product.featuredImage = image
+                                }} />
+                            ))}
+                        </div>
+                        <div className="relative rounded-lg col-span-5">
+                            <img src={images[0].node.url} className="object-cover rounded-lg" />
+                        </div>
                     </div>
-
                     {/* Product info */}
                     <div className="mx-auto max-w-2xl px-4 pt-10 pb-16 sm:px-6 lg:grid lg:max-w-7xl lg:grid-cols-3 lg:grid-rows-[auto,auto,1fr] lg:gap-x-8 lg:px-8 lg:pt-16 lg:pb-24">
                         <div className="lg:col-span-2 lg:border-r lg:border-gray-200 lg:pr-8">
