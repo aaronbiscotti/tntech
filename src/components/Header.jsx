@@ -95,7 +95,7 @@ function MobileNavigation() {
 
 export function Header() {
   return (
-    <header className="py-10 z-10 w-full absolute font-display">
+    <header className="absolute z-10 w-full py-10 font-display">
       <Container className="relative">
         <nav className="relative z-50 text-sm">
           <ul className="flex items-center">
@@ -104,27 +104,13 @@ export function Header() {
                 <img src="/logo.svg" className="h-15 w-auto cursor-pointer" />
               </Link>
             </li>
-            <li className="ml-12 hidden md:block">
-              <Link href="/build-your-pc/starter">
-                <a className="rounded-lg py-1 px-2 text-white">
-                  Starter Collection
-                </a>
-              </Link>
-            </li>
-            <li className="ml-6 hidden md:block">
-              <Link href="/build-your-pc/casual">
-                <a className="rounded-lg py-1 px-2 text-white">
-                  Casual Collection
-                </a>
-              </Link>
-            </li>
-            <li className="ml-6 hidden md:block">
-              <Link href="/build-your-pc/prodigy">
-                <a className="rounded-lg py-1 px-2 text-white">
-                  Prodigy Collection
-                </a>
-              </Link>
-            </li>
+
+            <li>{navItem("Starter Collection", "/build-your-pc/starter")}</li>
+            <li>{navItem("Casual Collection", "/build-your-pc/casual")}</li>
+            <li>{navItem("Prodigy Collection", "/build-your-pc/prodigy")}</li>
+
+            
+          
             <li className="ml-auto hidden md:block">
               <ButtonLink href="/build-your-pc" color="blue">
                 <span>
@@ -140,4 +126,15 @@ export function Header() {
       </Container>
     </header>
   )
+}
+
+function navItem(name, link) {
+  return(<li className="ml-6 hidden md:block">
+    <Link href={link}>
+      <a href="#" class="group text-white transition duration-300">
+        {name}
+        <span class="block h-0.5 max-w-0 bg-purple-400 transition-all duration-500 group-hover:max-w-full"></span>
+      </a>
+    </Link>
+  </li>);
 }
