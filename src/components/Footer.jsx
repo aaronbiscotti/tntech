@@ -11,7 +11,7 @@ export function Footer() {
       <Container>
         <div className="py-20 flex justify-between items-start">
           <div>
-            <h3 className="text-[40px] mb-[10px]">Sign Up To Our Newsletter.</h3>
+            <h3 className="text-[40px] font-[Anton] uppercase mb-[10px]">Sign Up To Our Newsletter</h3>
             <p>Be the first to hear about the latest offers</p>
           </div>
 
