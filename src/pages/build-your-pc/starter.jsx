@@ -17,7 +17,7 @@ export default function starter({ products }) {
         <>
             <div className="bg-gray-50">
                 <Header />
-                <div className="relative overflow-hidden bg-no-repeat bg-cover bg-center bg-background h-[140px]" />
+                <div className="relative overflow-hidden h-[140px]" />
                 <div>
                     {/* Mobile menu */}
                     <Transition.Root show={mobileMenuOpen} as={Fragment}>

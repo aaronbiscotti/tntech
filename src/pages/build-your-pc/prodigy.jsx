@@ -17,7 +17,7 @@ export default function prodigy({ products }) {
         <>
             <div className="bg-gray-50">
                 <Header />
-                <div className="relative overflow-hidden bg-no-repeat bg-cover bg-center bg-background h-[140px]" />
+                <div className="relative overflow-hidden h-[140px]" />
                 <div>
                     {/* Mobile menu */}
                     <Transition.Root show={mobileMenuOpen} as={Fragment}>
@@ -143,14 +143,14 @@ export default function prodigy({ products }) {
                                 <div className="absolute inset-x-0 bottom-0 bg-black bg-opacity-75 p-6 rounded-bl-lg rounded-br-lg backdrop-filter backdrop-blur sm:flex sm:items-center sm:justify-between lg:inset-y-0 lg:inset-x-auto lg:w-96 lg:rounded-tl-lg lg:rounded-br-none lg:flex-col lg:items-start">
                                     <div>
                                         <h2 id="featured-heading" className="text-5xl font-[Anton] uppercase text-white">
-                                            Casual Collection
+                                            Starter Collection
                                         </h2>
                                         <p className="mt-1 text-sm text-gray-300">
                                             Upgrade your experience with the latest industry hardware. For gamers, built by gamers.
                                         </p>
                                     </div>
                                     <a
-                                        href="/build-your-pc/casual"
+                                        href="/build-your-pc/starter"
                                         className="mt-6 flex-shrink-0 flex bg-white bg-opacity-0 py-3 px-4 border border-white border-opacity-25 rounded-md items-center justify-center text-base font-medium text-white hover:bg-opacity-10 sm:mt-0 sm:ml-8 lg:ml-0 lg:w-full"
                                     >
                                         View the collection

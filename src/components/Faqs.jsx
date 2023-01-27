@@ -45,7 +45,7 @@ export function Faqs() {
     <section
       id="faq"
       aria-labelledby="faq-title"
-      className="relative overflow-hidden bg-no-repeat bg-cover pt-20 pb-28 sm:py-[170px] bg-background2"
+      className="relative overflow-hidden bg-no-repeat bg-cover pt-20 pb-28 sm:py-[170px] bg-main"
     >
       <h2 id="faq-title" className="sr-only">
         Frequently asked questions

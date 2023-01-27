@@ -64,7 +64,7 @@ export function Pricing() {
               className="mt-8 bg-main"
               aria-label="Start building with the beginner plan"
             >
-              Start building
+              Explore collection
             </ButtonLink>
           </div>
           <div className="relative bg-main py-16 px-4 sm:rounded-5xl sm:py-12 sm:px-10 sm:shadow-lg lg:px-12">
@@ -113,7 +113,7 @@ export function Pricing() {
                 className="mt-8"
                 aria-label="Start building with the casual and experienced plan"
               >
-                Start building
+                Explore collection
               </ButtonLink>
             </div>
           </div>
@@ -162,7 +162,7 @@ export function Pricing() {
               className="mt-8 bg-main"
               aria-label="Start building with the prodigy plan"
             >
-              Start building
+              Explore collection
             </ButtonLink>
           </div>
         </div>

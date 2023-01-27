@@ -14,7 +14,7 @@ export default function Home() {
             </Head>
             <Header />
             <main>
-                <div className="relative overflow-hidden bg-no-repeat bg-cover bg-center bg-background h-[140px]" />
+
                 <SecondaryFeatures />
             </main>
         </>

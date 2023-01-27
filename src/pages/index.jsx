@@ -8,6 +8,7 @@ import { SecondaryFeatures } from '@/components/SecondaryFeatures'
 import { Testimonials } from '@/components/Testimonials'
 import { Pricing } from '@/components/Pricing'
 import { About } from '@/components/About'
+import HowItWorks from '@/components/HowItWorks'
 
 export default function Home() {
   return (
@@ -23,10 +24,11 @@ export default function Home() {
       <main>
         <PrimaryFeatures />
         <About />
+        <HowItWorks />
         <Pricing />
-        <CallToAction />
-        <Testimonials />
+        {/* <CallToAction /> */}
         <Faqs />
+        <Testimonials />
       </main>
       <Footer />
     </>
