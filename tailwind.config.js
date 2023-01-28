@@ -37,9 +37,10 @@ module.exports = {
         'water': "url('/water.png')",
         'fire': "url('/fire.png')",
         'earth': "url('/earth.png')",
+        'faqbg': "url('/faqbg.png')",
       },
       colors: {
-        'main': '#222646'
+        'main': 'black'
       }
     },
   },

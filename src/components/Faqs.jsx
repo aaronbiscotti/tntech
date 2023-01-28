@@ -45,17 +45,18 @@ export function Faqs() {
     <section
       id="faq"
       aria-labelledby="faq-title"
-      className="relative overflow-hidden bg-no-repeat bg-cover pt-20 pb-28 sm:py-[170px] bg-main"
+      className="relative overflow-hidden bg-no-repeat bg-cover pt-20 pb-28 sm:py-[170px] bg-faqbg"
     >
       <h2 id="faq-title" className="sr-only">
         Frequently asked questions
       </h2>
+      {/* <img src="/machine.png" className="absolute top-0 right-0 h-full" /> */}
       <Container className="relative">
         <div className="mx-auto max-w-3xl lg:mx-0">
-          <p className="font-[Anton] text-3xl uppercase text-white sm:text-6xl">
+          <p className="font-[Anton] text-3xl uppercase sm:text-6xl">
             Frequently asked questions
           </p>
-          <p className="mt-4 text-lg tracking-tight text-white">
+          <p className="mt-4 text-lg tracking-tight">
             If you can’t find what you’re looking for, email our support team
             and if you’re lucky someone will get back to you.
           </p>
@@ -66,10 +67,10 @@ export function Faqs() {
               <ul className="space-y-8">
                 {column.map((faq, faqIndex) => (
                   <li key={faqIndex}>
-                    <h3 className="font-display text-lg leading-7 font-bold text-white">
+                    <h3 className="font-display text-lg leading-7 font-bold">
                       {faq.question}
                     </h3>
-                    <p className="mt-4 text-sm text-white">{faq.answer}</p>
+                    <p className="mt-4 text-sm">{faq.answer}</p>
                   </li>
                 ))}
               </ul>
