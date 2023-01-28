@@ -7,7 +7,7 @@ import { AiFillInstagram, AiFillFacebook } from "react-icons/ai";
 
 export function Footer() {
   return (
-    <footer className="bg-main text-white">
+    <footer className="bg-main text-white z-10">
       <Container>
         <div className="py-20 flex justify-between items-start">
           <div>

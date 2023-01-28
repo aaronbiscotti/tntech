@@ -15,7 +15,7 @@ export default function prodigy({ products }) {
 
     return (
         <>
-            <div className="bg-gray-50">
+            <div className="relative h-full">
                 <Header />
                 <div className="relative overflow-hidden h-[140px]" />
                 <div>
@@ -104,7 +104,7 @@ export default function prodigy({ products }) {
                                     Products
                                 </h2>
 
-                                <div className="grid grid-cols-1 gap-y-10 sm:grid-cols-2 gap-x-6 lg:grid-cols-3 xl:gap-x-8">
+                                <div className="grid grid-cols-1 gap-y-10 sm:grid-cols-2 gap-x-6 lg:grid-cols-3 xl:gap-x-8 mb-32">
                                     {products.edges.map((item) => {
                                         const product = item.node
                                         const image = product.images.edges[0].node
@@ -130,7 +130,7 @@ export default function prodigy({ products }) {
                                 </div>
                             </section>
 
-                            <section aria-labelledby="featured-heading" className="relative mt-16 rounded-lg overflow-hidden lg:h-96 mb-10">
+                            {/* <section aria-labelledby="featured-heading" className="relative mt-16 rounded-lg overflow-hidden lg:h-96 mb-10">
                                 <div className="absolute inset-0">
                                     <Image
                                         src={banner}
@@ -156,7 +156,7 @@ export default function prodigy({ products }) {
                                         View the collection
                                     </a>
                                 </div>
-                            </section>
+                            </section> */}
                         </div>
                     </main>
                     <Footer />

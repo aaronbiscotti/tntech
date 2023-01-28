@@ -38,6 +38,8 @@ module.exports = {
         'fire': "url('/fire.png')",
         'earth': "url('/earth.png')",
         'faqbg': "url('/faqbg.png')",
+        'prodigyr': "url('/prodigyright.png')",
+        'prodigyl': "url('/prodigyleft.png')",
       },
       colors: {
         'main': 'black'
