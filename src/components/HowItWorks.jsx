@@ -1,4 +1,3 @@
-/* This example requires Tailwind CSS v2.0+ */
 const perks = [
   {
     name: 'Let us know your requirements',
@@ -28,7 +27,9 @@ const perks = [
 
 export default function HowItWorks() {
   return (
-    <div className="bg-gray-50 mt-20" id="how-it-works">
+    <div className="bg-gray-50 mt-20 relative h-full" id="how-it-works">
+      <img src="/leftside.png" className="absolute h-full" />
+      <img src="/right.png" className="absolute h-full right-0" />
       <h2 className="sr-only">Our perks</h2>
       <div className="max-w-7xl mx-auto py-24 sm:px-2 sm:py-32 lg:px-4">
         <p className="mt-8 uppercase font-title text-5xl text-main sm:text-6xl w-[600px] mb-20">

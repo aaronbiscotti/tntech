@@ -11,11 +11,11 @@ import Link from 'next/link'
 
 const features = [
   {
-    name: 'Noob',
+    name: 'Starter',
     link: '/build-your-pc/starter',
     summary: 'Cutting-edge performance.',
     description:
-      'Designed for those who are first starting to game. These computers prioritize powerful CPU, GPU, and sufficient memory and storage to ensure fast and responsive gameplay.',
+      'Designed for those who are trying out. These computers prioritize powerful CPU, GPU, and sufficient memory and storage to ensure fast and responsive gameplay.',
     image: iteration1,
     icon: function ReportingIcon() {
       let id = useId()
@@ -28,6 +28,14 @@ const features = [
         </>
       )
     },
+    perks: [
+      'Entry-level processors and graphics cards',
+      'Adequate memory and storage',
+      'User-friendly interface',
+      'Easy to upgrade',
+      'Affordable price point',
+    ],
+    background: "bg-fire"
   },
   {
     name: 'Casual',
@@ -47,6 +55,14 @@ const features = [
         </>
       )
     },
+    perks: [
+      'Mid-level processors and graphics cards',
+      'Adequate memory and storage',
+      'User-friendly interface',
+      'Easy to upgrade',
+      'Affordable price point',
+    ],
+    background: "bg-water"
   },
   {
     name: 'Prodigy',
@@ -54,7 +70,7 @@ const features = [
     summary:
       'Wide range expandability',
     description:
-      'High-quality prioritization of expansion slots and ports for adding additional components such as additional storage, graphics cards, or extra RAM.',
+      'The best of the best. High-quality prioritization of expansion slots and ports for adding additional components such as additional storage, graphics cards, or extra RAM.',
     image: iteration3,
     icon: function ContactsIcon() {
       return (
@@ -67,13 +83,21 @@ const features = [
         </>
       )
     },
+    perks: [
+      'High-performance processors and graphics cards',
+      'High-end memory and storage',
+      'Advanced cooling systems',
+      'Expandable hardware options',
+      'Premium price point',
+    ],
+    background: "bg-earth"
   },
 ]
 
 function Feature({ feature, isActive, className, ...props }) {
   return (
     <div
-      className={clsx(className, { 'opacity-75 hover:opacity-100': !isActive })}
+      className={clsx(className, { 'opacity-75 hover:opacity-100 duration-100 ease-in-out': !isActive })}
       {...props}
     >
       <div
@@ -87,17 +111,14 @@ function Feature({ feature, isActive, className, ...props }) {
         </div>
       </div>
       <h3
-        className={clsx('mt-6 text-sm font-medium', {
-          'text-red-600': isActive,
-          'text-slate-600': !isActive,
-        })}
+        className="mt-6 text-sm font-medium text-white"
       >
         {feature.name}
       </h3>
-      <p className="mt-2 font-display text-xl text-slate-900">
+      <p className="mt-2 font-[Anton] uppercase tracking-wider text-5xl text-white">
         {feature.summary}
       </p>
-      <p className="mt-4 text-sm text-slate-600">{feature.description}</p>
+      <p className="mt-4 text-md font-bold text-white">{feature.description}</p>
     </div>
   )
 }
@@ -127,28 +148,45 @@ function FeaturesMobile() {
 
 function FeaturesDesktop() {
   return (
-    <Tab.Group as="div" className="hidden lg:mt-20 lg:block">
+    <Tab.Group as="div" className="hidden lg:mt-10 lg:block">
       {({ selectedIndex }) => (
         <>
-          <Tab.List className="grid grid-cols-3 gap-x-8">
+          <Tab.List className="grid grid-cols-3 gap-x-2">
             {features.map((feature, featureIndex) => (
+              <div className={`p-5 rounded-lg ${feature.background}`}>
               <Feature
                 key={feature.name}
                 feature={{
                   ...feature,
                   name: (
-                    <Tab className="[&:not(:hover-visible)]:hover:outline-none">
-                      <span className="absolute inset-0" />
+                    <Tab className="outline-none">
+                      <span className="absolute inset-0 outline-none" />
                       {feature.name}
                     </Tab>
                   ),
                 }}
                 isActive={featureIndex === selectedIndex}
-                className="relative"
+                  className="relative"
               />
+                <div className="order-1">
+                  <ul className="mt-4 divide-y divide-slate-200 text-base tracking-tight text-main bg-white rounded-lg p-2">
+                    {feature.perks.map((perk) => (
+                      <li key={perk} className="flex py-2 items-center">
+                        <svg
+                          aria-hidden="true"
+                          className="h-8 w-8 flex-none fill-slate-600"
+                        >
+                          <path d="M11.83 15.795a1 1 0 0 0-1.66 1.114l1.66-1.114Zm9.861-4.072a1 1 0 1 0-1.382-1.446l1.382 1.446ZM14.115 21l-.83.557a1 1 0 0 0 1.784-.258L14.115 21Zm.954.3c1.29-4.11 3.539-6.63 6.622-9.577l-1.382-1.446c-3.152 3.013-5.704 5.82-7.148 10.424l1.908.598Zm-4.9-4.391 3.115 4.648 1.661-1.114-3.114-4.648-1.662 1.114Z" />
+                        </svg>
+                        <span className="ml-2 font-display text-sm">{perk}</span>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              </div>
             ))}
           </Tab.List>
-          <Tab.Panels className="relative mt-20 overflow-hidden rounded-4xl bg-slate-200 px-14 py-16 xl:px-16">
+          <Tab.Panels className="relative mt-5 overflow-hidden rounded-4xl bg-slate-200 px-14 py-16 xl:px-16">
             <div className="-mx-5 flex">
               {features.map((feature, featureIndex) => (
                 <Link href={feature.link}>

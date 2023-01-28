@@ -34,6 +34,9 @@ module.exports = {
       backgroundImage: {
         'background': "url('/background.png')",
         'background2': "url('/background2.png')",
+        'water': "url('/water.png')",
+        'fire': "url('/fire.png')",
+        'earth': "url('/earth.png')",
       },
       colors: {
         'main': '#222646'
