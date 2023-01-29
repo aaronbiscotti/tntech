@@ -72,7 +72,7 @@ export default function starter({ products }) {
                     </Transition.Root>
                 </div>
 
-                <div>
+                <div className="bg-starterbg bg-cover bg-no-repeat bg-top">
                     {/* Mobile filter dialog */}
                     <Transition.Root show={mobileFiltersOpen} as={Fragment}>
                         <Dialog as="div" className="fixed inset-0 flex z-40 sm:hidden" onClose={setMobileFiltersOpen}>
@@ -91,14 +91,16 @@ export default function starter({ products }) {
                     </Transition.Root>
 
                     <main>
-                        <div className="py-52 text-center w-screen bg-starterbg bg-cover bg-no-repeat bg-top">
-                            <h1 className="text-6xl font-[Anton] uppercase text-white">Starter computers</h1>
-                            <p className="mt-4 max-w-3xl mx-auto text-base text-white">
-                                Thoughtfully designed for new gamers.
-                            </p>
-                        </div>
-                        <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:max-w-7xl lg:px-8 relative mt-20">
+                        <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:max-w-7xl lg:px-8 relative">
                             {/* Product grid */}
+                            <div className="py-52 text-center">
+                                <div>
+                                    <h1 className="text-6xl font-[Anton] uppercase text-white">Starter computers</h1>
+                                    <p className="mt-4 max-w-3xl mx-auto text-base text-white">
+                                Thoughtfully designed for new gamers.
+                                    </p>
+                                </div>
+                            </div>
                             <section aria-labelledby="products-heading">
                                 <h2 id="products-heading" className="sr-only">
                                     Products
@@ -118,7 +120,7 @@ export default function starter({ products }) {
                                                             className="w-full h-full object-center object-cover group-hover:opacity-75 duration-100 ease-in"
                                                         />
                                                     </div>
-                                                    <div className="mt-4 flex items-center justify-between text-base font-medium text-gray-900">
+                                                    <div className="mt-4 flex items-center justify-between text-base font-medium text-white">
                                                         <h3>{product.title}</h3>
                                                         <p className="font-bold">${product.priceRange.minVariantPrice.amount}</p>
                                                     </div>
