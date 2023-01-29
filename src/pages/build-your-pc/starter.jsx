@@ -91,13 +91,13 @@ export default function starter({ products }) {
                     </Transition.Root>
 
                     <main>
-                        <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:max-w-7xl lg:px-8">
-                            <div className="py-24 text-center">
-                                <h1 className="text-6xl font-[Anton] uppercase text-main">Starter computers</h1>
-                                <p className="mt-4 max-w-3xl mx-auto text-base text-gray-500">
-                                    Thoughtfully designed for new gamers.
-                                </p>
-                            </div>
+                        <div className="py-52 text-center w-screen bg-starterbg bg-cover bg-no-repeat bg-top">
+                            <h1 className="text-6xl font-[Anton] uppercase text-white">Starter computers</h1>
+                            <p className="mt-4 max-w-3xl mx-auto text-base text-white">
+                                Thoughtfully designed for new gamers.
+                            </p>
+                        </div>
+                        <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:max-w-7xl lg:px-8 relative mt-20">
                             {/* Product grid */}
                             <section aria-labelledby="products-heading">
                                 <h2 id="products-heading" className="sr-only">

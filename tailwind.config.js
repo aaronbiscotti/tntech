@@ -40,6 +40,9 @@ module.exports = {
         'faqbg': "url('/faqbg.png')",
         'prodigyr': "url('/prodigyright.png')",
         'prodigyl': "url('/prodigyleft.png')",
+        'prodigybg': "url('/prodigybg.png')",
+        'casualbg': "url('/casualbg.png')",
+        'starterbg': "url('/starterbg.png')",
       },
       colors: {
         'main': 'black'

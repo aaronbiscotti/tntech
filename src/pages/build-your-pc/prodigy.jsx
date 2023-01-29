@@ -15,9 +15,11 @@ export default function prodigy({ products }) {
 
     return (
         <>
-            <div className="relative h-full">
+            <div>
                 <Header />
-                <div className="relative overflow-hidden h-[140px]" />
+                <div className="overflow-hidden h-[140px]" />
+                {/* <img src="/prodigyright.png" className="absolute top-0 right-0 h-full hidden 2xl:block" />
+                <img src="/prodigyleft.png" className="absolute top-0 h-full hidden 2xl:block" /> */}
                 <div>
                     {/* Mobile menu */}
                     <Transition.Root show={mobileMenuOpen} as={Fragment}>
@@ -47,7 +49,7 @@ export default function prodigy({ products }) {
                                     <div className="px-4 pt-5 pb-2 flex">
                                         <button
                                             type="button"
-                                            className="-m-2 p-2 rounded-md inline-flex items-center justify-center text-gray-400"
+                                            className="-m-2 p-2 rounded-md inline-flex items-center justify-center text-white"
                                             onClick={() => setMobileMenuOpen(false)}
                                         >
                                             <span className="sr-only">Close menu</span>
@@ -72,7 +74,7 @@ export default function prodigy({ products }) {
                     </Transition.Root>
                 </div>
 
-                <div>
+                <div className="h-full">
                     {/* Mobile filter dialog */}
                     <Transition.Root show={mobileFiltersOpen} as={Fragment}>
                         <Dialog as="div" className="fixed inset-0 flex z-40 sm:hidden" onClose={setMobileFiltersOpen}>
@@ -91,13 +93,13 @@ export default function prodigy({ products }) {
                     </Transition.Root>
 
                     <main>
-                        <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:max-w-7xl lg:px-8">
-                            <div className="py-24 text-center">
-                                <h1 className="text-6xl font-[Anton] uppercase text-main">Prodigy computers</h1>
-                                <p className="mt-4 max-w-3xl mx-auto text-base text-gray-500">
+                        <div className="py-52 text-center w-screen bg-prodigybg bg-cover bg-no-repeat bg-bottom">
+                            <h1 className="text-6xl font-[Anton] uppercase text-white">Prodigy computers</h1>
+                            <p className="mt-4 max-w-3xl mx-auto text-base text-white">
                                     Carefully curated for the top 1%.
                                 </p>
                             </div>
+                        <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:max-w-7xl lg:px-8 relative mt-20">
                             {/* Product grid */}
                             <section aria-labelledby="products-heading">
                                 <h2 id="products-heading" className="sr-only">
@@ -159,9 +161,9 @@ export default function prodigy({ products }) {
                             </section> */}
                         </div>
                     </main>
-                    <Footer />
                 </div>
             </div>
+            <Footer />
         </>
     )
 }
