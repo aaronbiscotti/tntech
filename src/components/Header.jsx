@@ -97,7 +97,7 @@ export function Header() {
   return (
     <header className="absolute z-10 w-full py-10 font-display">
       <Container className="relative">
-        <nav className="relative z-50 text-sm">
+        <nav className="relative z-50 text-md">
           <ul className="flex items-center">
             <li>
               <Link href="/">

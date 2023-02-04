@@ -21,7 +21,7 @@ const features = [
       let id = useId()
       return (
         <>
-          <svg xmlns="http://www.w3.org/2000/svg" className="icon icon-tabler icon-tabler-flame" width="28" height="28" viewBox="0 0 24 24" strokeWidth="2" stroke="white" fill="none" stroke-linecap="round" stroke-linejoin="round">
+          <svg xmlns="http://www.w3.org/2000/svg" className="icon icon-tabler icon-tabler-flame" width="28" height="28" viewBox="0 0 24 24" strokeWidth="2" stroke="white" fill="none" strokeLinecap="round" strokeLinejoin="round">
             <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
             <path d="M12 12c2 -2.96 0 -7 -1 -8c0 3.038 -1.773 4.741 -3 6c-1.226 1.26 -2 3.24 -2 5a6 6 0 1 0 12 0c0 -1.532 -1.056 -3.94 -2 -5c-1.786 3 -2.791 3 -4 2z"></path>
           </svg>
@@ -48,7 +48,7 @@ const features = [
     icon: function InventoryIcon() {
       return (
         <>
-          <svg xmlns="http://www.w3.org/2000/svg" className="icon icon-tabler icon-tabler-droplet" width="28" height="28" viewBox="0 0 24 24" strokeWidth="2" stroke="white" fill="none" stroke-linecap="round" stroke-linejoin="round">
+          <svg xmlns="http://www.w3.org/2000/svg" className="icon icon-tabler icon-tabler-droplet" width="28" height="28" viewBox="0 0 24 24" strokeWidth="2" stroke="white" fill="none" strokeLinecap="round" strokeLinejoin="round">
             <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
             <path d="M6.8 11a6 6 0 1 0 10.396 0l-5.197 -8l-5.2 8z"></path>
           </svg>
@@ -75,7 +75,7 @@ const features = [
     icon: function ContactsIcon() {
       return (
         <>
-          <svg xmlns="http://www.w3.org/2000/svg" className="icon icon-tabler icon-tabler-mountain" width="28" height="28" viewBox="0 0 24 24" strokeWidth="2" stroke="white" fill="none" stroke-linecap="round" stroke-linejoin="round">
+          <svg xmlns="http://www.w3.org/2000/svg" className="icon icon-tabler icon-tabler-mountain" width="28" height="28" viewBox="0 0 24 24" strokeWidth="2" stroke="white" fill="none" strokeLinecap="round" strokeLinejoin="round">
             <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
             <path d="M3 20h18l-6.921 -14.612a2.3 2.3 0 0 0 -4.158 0l-6.921 14.612z"></path>
             <path d="M7.5 11l2 2.5l2.5 -2.5l2 3l2.5 -2"></path>
@@ -111,14 +111,17 @@ function Feature({ feature, isActive, className, ...props }) {
         </div>
       </div>
       <h3
-        className="mt-6 text-sm font-medium text-white"
+        className="mt-6 text-sm font-medium"
       >
         {feature.name}
       </h3>
-      <p className="mt-2 font-[Anton] uppercase tracking-wider text-5xl text-white">
+      <p className="mt-2 font-[Anton] uppercase tracking-wider text-5xl">
         {feature.summary}
       </p>
-      <p className="mt-4 text-md font-bold text-white">{feature.description}</p>
+      <p className="mt-4 text-md">{feature.description}</p>
+      <Link href={feature.link}>
+        <button className="w-full bg-gray-900 text-white font-display mt-5 rounded-md py-3">Explore {feature.name} Collection</button>
+      </Link>
     </div>
   )
 }
@@ -168,7 +171,28 @@ function FeaturesDesktop() {
                 isActive={featureIndex === selectedIndex}
                   className="relative"
               />
-                <div className="order-1">
+                <Link href={feature.link}>
+                  <Tab.Panel
+                    static
+                    key={feature.name}
+                    className={clsx(
+                      'px-5 transition duration-500 ease-in-out [&:not(:hover-visible)]:hover:outline-none hover:opacity-100',
+                      {
+                        'opacity-60': featureIndex !== selectedIndex,
+                      }
+                    )}
+                    aria-hidden={featureIndex !== selectedIndex}
+                  >
+                    <div className="rounded-xl cursor-pointer hover:opacity-100">
+                      <Image
+                        src={feature.image}
+                        alt=""
+                        className="object-contain"
+                      />
+                    </div>
+                  </Tab.Panel>
+                </Link>
+                {/* <div className="order-1">
                   <ul className="mt-4 divide-y divide-slate-200 text-base tracking-tight text-main bg-white rounded-lg p-2">
                     {feature.perks.map((perk) => (
                       <li key={perk} className="flex py-2 items-center">
@@ -182,11 +206,11 @@ function FeaturesDesktop() {
                       </li>
                     ))}
                   </ul>
-                </div>
+                </div> */}
               </div>
             ))}
           </Tab.List>
-          <Tab.Panels className="relative mt-5 overflow-hidden rounded-4xl bg-slate-200 px-14 py-16 xl:px-16">
+          {/* <Tab.Panels className="relative mt-5 overflow-hidden rounded-4xl bg-slate-200 px-14 py-16 xl:px-16">
             <div className="-mx-5 flex">
               {features.map((feature, featureIndex) => (
                 <Link href={feature.link}>
@@ -213,7 +237,7 @@ function FeaturesDesktop() {
               ))}
             </div>
             <div className="pointer-events-none absolute inset-0 rounded-4xl ring-1 ring-inset ring-slate-900/10" />
-          </Tab.Panels>
+          </Tab.Panels> */}
         </>
       )}
     </Tab.Group>
