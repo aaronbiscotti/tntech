@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react"
 import Image from "next/image"
 import TextTransition, { presets } from "react-text-transition"
 import { Container } from '@/components/Container'
+import Typewriter from "typewriter-effect"
 import Link from "next/link"
 const TEXTS = [
   "YOUR FAVORITE GAME",
@@ -35,10 +36,19 @@ export function PrimaryFeatures() {
         <div className="max-w-2xl mt-40 mb-20 md:text-left xl:max-w-none">
           <h2
             id="features-title"
-            className="text-4xl text-main sm:text-5xl md:text-7xl max-w-xl font-[Anton]"
+            className="text-3xl text-main sm:text-5xl md:text-7xl max-w-xl font-[Anton]"
           >
-            EVERYTHING YOU NEED TO RUN <TextTransition springConfig={presets.stiff} inline>{TEXTS[index % TEXTS.length]}</TextTransition>
+            EVERYTHING YOU NEED TO RUN
           </h2>
+          <Typewriter
+            options={{
+              strings: ['Your favorite game', 'Cyberpunk 2077', 'Grand Theft Auto V', 'Overwatch', 'Elden Ring', 'Call of Duty', 'Fortnite'],
+              autoStart: true,
+              loop: true,
+              wrapperClassName: 'text-3xl uppercase text-main sm:text-5xl md:text-7xl max-w-xl font-[Anton]',
+              cursorClassName: 'text-3xl uppercase text-main sm:text-5xl md:text-7xl max-w-xl font-[Anton]'
+            }}
+          />
           <p className="text-lg mt-5 max-w-md text-main">
             Well everything you need if you aren’t that picky about minor
             details.
