@@ -100,7 +100,7 @@ export default function starter({ products }) {
                             {/* Product grid */}
                             <div className="py-20 text-center mb-10 bg-cover bg-no-repeat bg-top">
                                 <div>
-                                    <h1 className="text-6xl font-[Anton] uppercase">Starter Series</h1>
+                                    <h1 className="text-6xl font-[Anton] uppercase">Complete Series</h1>
                                     <p className="mt-4 max-w-3xl mx-auto text-base">
                                         Thoughtfully designed for new gamers.
                                     </p>
@@ -197,7 +197,7 @@ const gql = String.raw
 
 const productsQuery = gql`
     query Products {
-        products(first:100, query:"tag:starter") {
+        products(first:100) {
             edges {
                 node {
                 title

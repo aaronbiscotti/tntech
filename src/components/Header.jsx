@@ -130,9 +130,9 @@ export function Header() {
             
           
             <li className="ml-auto hidden md:block">
-              <ButtonLink href="/build-your-pc" className="bg-main">
+              <ButtonLink href="/prebuilt-pcs" className="bg-main">
                 <span>
-                  Purchase Today
+                  View full collection
                 </span>
               </ButtonLink>
             </li>

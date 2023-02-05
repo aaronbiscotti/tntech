@@ -120,7 +120,7 @@ function Feature({ feature, isActive, className, ...props }) {
       </p>
       <p className="mt-4 text-md">{feature.description}</p>
       <Link href={feature.link}>
-        <button className="w-full bg-gray-900 text-white font-display mt-5 rounded-md py-3">Explore {feature.name} Collection</button>
+        <div className="flex justify-center items-center w-full bg-gray-900 text-white font-display mt-5 rounded-md py-3">Explore &nbsp;{feature.name}&nbsp; Collection</div>
       </Link>
     </div>
   )

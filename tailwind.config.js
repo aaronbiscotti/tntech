@@ -45,7 +45,8 @@ module.exports = {
         'starterbg': "url('/starterbg.png')",
       },
       colors: {
-        'main': 'black'
+        'main': 'black',
+        'secondary': '#F5F5F8',
       }
     },
   },
