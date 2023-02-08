@@ -161,7 +161,7 @@ export default function starter({ products }) {
                                 <div className="absolute inset-x-0 bottom-0 bg-opacity-75 p-6 rounded-bl-lg rounded-br-lg backdrop-filter backdrop-blur sm:flex sm:items-center sm:justify-between lg:inset-y-0 lg:inset-x-auto lg:w-96 lg:rounded-tl-lg lg:rounded-br-none lg:flex-col lg:items-start">
                                     <div>
                                         <h2 id="featured-heading" className="text-5xl font-[Anton] uppercase text-black">
-                                            Casual Collection
+                                            Casual Series
                                         </h2>
                                         <p className="mt-1 text-sm text-black">
                                             Upgrade your experience with the latest industry hardware. For gamers, built by gamers.
