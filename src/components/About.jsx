@@ -1,6 +1,7 @@
 import { ButtonLink } from '@/components/Button'
 import { Container } from '@/components/Container'
 import { GridPattern } from '@/components/GridPattern'
+import Carousel from './Carousel'
 
 const products = [
     {

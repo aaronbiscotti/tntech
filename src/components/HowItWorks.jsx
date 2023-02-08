@@ -30,9 +30,8 @@ export default function HowItWorks() {
     <div className="bg-gray-50 mt-20 relative h-full" id="how-it-works">
       {/* <img src="/leftside.png" className="absolute h-full" />
       <img src="/right.png" className="absolute h-full right-0" /> */}
-      <h2 className="sr-only">Our perks</h2>
       <div className="max-w-7xl mx-auto py-24 sm:px-4 sm:py-32 lg:px-8">
-        <p className="mt-8 uppercase font-title text-5xl sm:text-6xl w-[600px] mb-20">
+        <p className="mt-8 uppercase text-center font-title text-5xl sm:text-6xl mb-20">
           How it works
         </p>
         <div className="max-w-2xl mx-auto px-4 grid grid-cols-1 gap-y-12 gap-x-8 lg:max-w-none lg:grid-cols-2 lg:gap-y-16">

@@ -11,6 +11,8 @@ import { About } from '@/components/About'
 import HowItWorks from '@/components/HowItWorks'
 import { storefront } from 'utils'
 import Link from 'next/link'
+import { useState } from 'react'
+import Carousel from '@/components/Carousel'
 
 
 const icons = [
@@ -22,9 +24,6 @@ const icons = [
 
 
 export default function Home({ products }) {
-  const product = products.edges[0].node
-  const specs = product.metafield.value
-  const image = product.images.edges[0].node
   return (
     <>
       <Head>
@@ -42,56 +41,62 @@ export default function Home({ products }) {
           aria-labelledby="pricing-title"
           className="relative scroll-mt-14 sm:scroll-mt-32 mt-10"
         >
-          <Container className="flex justify-between w-full items-center">
-            <div className="bg-white">
-              <div className="py-16 max-w-7xl">
-                <h2 className="text-6xl font-[Anton] uppercase text-gray-900 mb-10">FEATURED BUILD</h2>
+          <Container className="flex justify-between w-full items-center h-full relative">
+            <div className="bg-white h-full w-full relative">
+              <div className="py-16 max-w-7xl h-full relative">
+                <h2 className="text-6xl text-center font-[Anton] uppercase text-gray-900 mb-10">FEATURED BUILDS</h2>
                 {/* Featured build */}
-                <div className="grid grid-cols-3">
-                  <Link key={product.handle} href={`/build-your-pc/products/${product.handle}`}>
-                    <a className="group col-span-2">
-                      <div className="rounded-l h-full max-w-30 overflow-hidden">
-                        <img
-                          src={image.transformedSrc}
-                          alt={image.altText}
-                          className="h-full object-center object-cover group-hover:opacity-75 duration-100 ease-in"
-                        />
+                <Carousel className="h-full w-full">
+                  {products.edges.map((item, i) => {
+                    const product = item.node
+                    const specs = product.metafield.value
+                    const image = product.images.edges[0].node
+                    return (
+                      <div className="grid grid-cols-3" key={i}>
+                        <Link key={product.handle} href={`/build-your-pc/products/${product.handle}`}>
+                          <a className="group col-span-2">
+                            <div className="rounded-l h-full max-w-30 overflow-hidden">
+                              <img
+                                src={image.transformedSrc}
+                                alt={image.altText}
+                                className="h-full object-center object-cover group-hover:opacity-75 duration-100 ease-in"
+                              />
+                            </div>
+                          </a>
+                        </Link>
+                        <div className="col-span-1 h-full w-full bg-secondary rounded-r px-5 pb-5 flex flex-col justify-between pr-20">
+                          <div>
+                            <div className="mt-4 flex items-center justify-between text-base font-medium mb-5">
+                              <h3 className="text-lg">{product.title}</h3>
+                            </div>
+                            <ul>
+                              {specs.split('\n').map((spec, i) => (
+                                <li key={i} className="flex items-center text-sm font-display">
+                                  <img src={icons[i]} className="w-10 h-10" />
+                                  {spec}
+                                </li>
+                              ))}
+                            </ul>
+                          </div>
+                          <Link key={product.handle} href={`/build-your-pc/products/${product.handle}`}>
+                            <div>
+                              <p className="font-bold text-2xl">${product.priceRange.minVariantPrice.amount}</p>
+                              <div className="flex justify-center items-center w-full cursor-pointer bg-gray-900 text-white font-display mt-5 rounded-md py-3">Buy now</div>
+                            </div>
+                          </Link>
+                        </div>
                       </div>
-                    </a>
-                  </Link>
-                  <div className="col-span-1 h-full w-full bg-secondary rounded-r px-5 pb-5 flex flex-col justify-between">
-                    <div>
-                      <div className="mt-4 flex items-center justify-between text-base font-medium mb-5">
-                        <h3 className="text-lg">{product.title}</h3>
-                      </div>
-                      <ul>
-                        {specs.split('\n').map((spec, i) => (
-                          <li key={i} className="flex items-center text-sm font-display">
-                            <img src={icons[i]} className="w-10 h-10" />
-                            {spec}
-                          </li>
-                        ))}
-                      </ul>
-                    </div>
-                    <Link key={product.handle} href={`/build-your-pc/products/${product.handle}`}>
-                      <div>
-                        <p className="font-bold text-2xl">${product.priceRange.minVariantPrice.amount}</p>
-                        <div className="flex justify-center items-center w-full cursor-pointer bg-gray-900 text-white font-display mt-5 rounded-md py-3">Buy now</div>
-                      </div>
-                    </Link>
-                  </div>
-
-                </div>
+                    )
+                  })}
+                </Carousel>
               </div>
             </div>
           </Container>
         </section>
-        <HowItWorks />
         <SecondaryFeatures />
-        {/* <Pricing /> */}
-        {/* <CallToAction /> */}
-        <Faqs />
+        <HowItWorks />
         <Testimonials />
+        <Faqs />
       </main>
       <Footer />
     </>
@@ -111,7 +116,7 @@ const gql = String.raw
 
 const productsQuery = gql`
   query Products {
-      products(first:1, query:"tag:featured") {
+      products(first:3, query:"tag:featured") {
           edges {
               node {
                 title
