@@ -101,7 +101,7 @@ export function Header() {
           <ul className="flex items-center">
             <li>
               <Link href="/">
-                <img src="/logo.svg" className="h-[60px] w-auto cursor-pointer" />
+                <img src="/logoblack.svg" className="h-[80px] w-auto cursor-pointer" />
               </Link>
             </li>
 

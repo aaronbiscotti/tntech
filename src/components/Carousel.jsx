@@ -18,43 +18,45 @@ const Carousel = ({ children }) => {
     };
 
     return (
-        <div className="h-[33.8rem] relative overflow-hidden">
-            <div
-                className="absolute h-full w-full"
-                ref={carouselRef}
-                style={{
-                    display: "flex",
-                    transition: "transform 0.6s ease-in-out",
-                    transform: `translateX(-${currentIndex * 100}%)`,
-                }}
-            >
-                {children.map((child, index) => (
-                    <div
-                        key={index}
-                        className="h-full w-full"
-                        style={{ flex: "0 0 100%" }}
-                    >
-                        {child}
-                    </div>
-                ))}
-            </div>
-            {/* <div className="absolute inset-y-0 right-0 w-1/3">
-                <div className="h-full w-full opacity-75 blur-2">
-                    {children[previewIndex]}
-                </div>
-            </div> */}
+        <div className="h-[33.8rem] relative">
             <button
-                className="absolute inset-y-0 left-0 p-3 px-5 bg-gray-800 text-white hover:bg-gray-900 opacity-50 hover:opacity-100 duration-300 ease-in-out"
+                className="absolute inset-y-0 -left-20 rounded z-10 p-3 px-5 bg-gray-800 text-white hover:bg-gray-900 opacity-100 hover:opacity-80 duration-300 ease-in-out"
                 onClick={handlePrev}
             >
                 &larr;
             </button>
             <button
-                className="absolute inset-y-0 right-0 p-3 px-5 bg-gray-800 text-white hover:bg-gray-900 opacity-50 hover:opacity-100 duration-300 ease-in-out"
+                className="absolute inset-y-0 -right-20 p-3 rounded px-5 bg-gray-800 text-white hover:bg-gray-900 opacity-100 hover:opacity-80 duration-300 ease-in-out"
                 onClick={handleNext}
             >
                 &rarr;
             </button>
+            <div className="h-[33.8rem] relative overflow-hidden">
+                <div
+                    className="absolute h-full w-full"
+                    ref={carouselRef}
+                    style={{
+                        display: "flex",
+                        transition: "transform 0.6s ease-in-out",
+                        transform: `translateX(-${currentIndex * 100}%)`,
+                    }}
+                >
+                    {children.map((child, index) => (
+                        <div
+                            key={index}
+                            className="h-full w-full"
+                            style={{ flex: "0 0 100%" }}
+                        >
+                            {child}
+                        </div>
+                    ))}
+                </div>
+                {/* <div className="absolute inset-y-0 right-0 w-1/3">
+                    <div className="h-full w-full opacity-75 blur-2">
+                        {children[previewIndex]}
+                    </div>
+                </div> */}
+            </div>
         </div>
     );
 };

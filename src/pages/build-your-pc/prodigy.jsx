@@ -14,10 +14,8 @@ const icons = [
 ]
 
 export default function starter({ products }) {
-    console.log(products);
     const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
     const [mobileFiltersOpen, setMobileFiltersOpen] = useState(false)
-
     return (
         <>
             <div>
@@ -116,36 +114,48 @@ export default function starter({ products }) {
                                         const product = item.node
                                         const specs = product.metafield.value
                                         const image = product.images.edges[0].node
+                                        const previewImages = product.images.edges
+                                        const [featuredImage, setFeaturedImage] = useState(image)
                                         return (
-                                            <div className="grid grid-cols-4">
-                                                <Link key={product.handle} href={`/build-your-pc/products/${product.handle}`}>
-                                                    <a className="group col-span-2">
-                                                        <div className="rounded-l h-full max-w-30 overflow-hidden">
-                                                            <img
-                                                                src={image.transformedSrc}
-                                                                alt={image.altText}
-                                                                className="h-full object-center object-cover group-hover:opacity-75 duration-100 ease-in"
-                                                            />
-                                                        </div>
-                                                    </a>
-                                                </Link>
-                                                <div className="col-span-2 h-full w-full bg-secondary rounded-r px-5 pb-5 flex flex-col justify-between">
-                                                    <div className="mt-4 flex items-center justify-between text-base font-medium mb-5">
-                                                        <h3 className="text-lg">{product.title}</h3>
-                                                        <p className="font-bold">${product.priceRange.minVariantPrice.amount}</p>
-                                                    </div>
-                                                    <ul>
-                                                        {specs.split('\n').map((spec, i) => (
-                                                            <li key={i} className="flex items-center text-xs font-display">
-                                                                <img src={icons[i]} className="w-7 h-7" />
-                                                                {spec}
-                                                            </li>
-                                                        ))}
-                                                    </ul>
+                                            <div>
+                                                <div className="grid grid-cols-4">
                                                     <Link key={product.handle} href={`/build-your-pc/products/${product.handle}`}>
-                                                        <div className="flex justify-center items-center w-full cursor-pointer bg-gray-900 text-white font-display mt-5 rounded-md py-3">Buy now</div>
+                                                        <a className="group col-span-2">
+                                                            <div className="rounded-l h-full max-w-30 overflow-hidden">
+                                                                <img
+                                                                    src={featuredImage.transformedSrc}
+                                                                    alt={image.altText}
+                                                                    className="h-full object-center object-cover group-hover:opacity-75 duration-100 ease-in"
+                                                                />
+                                                            </div>
+                                                        </a>
                                                     </Link>
+                                                    <div className="col-span-2 h-full w-full bg-secondary rounded-r px-5 pb-5 flex flex-col justify-between">
+                                                        <div className="mt-4 flex items-center justify-between text-base font-medium mb-5">
+                                                            <h3 className="text-lg">{product.title}</h3>
+                                                            <p className="font-bold">${product.priceRange.minVariantPrice.amount}</p>
+                                                        </div>
+                                                        <ul>
+                                                            {specs.split('\n').map((spec, i) => (
+                                                                <li key={i} className="flex items-center text-xs font-display">
+                                                                    <img src={icons[i]} className="w-7 h-7" />
+                                                                    {spec}
+                                                                </li>
+                                                            ))}
+                                                        </ul>
+                                                        <Link key={product.handle} href={`/build-your-pc/products/${product.handle}`}>
+                                                            <div className="flex justify-center items-center w-full cursor-pointer bg-gray-900 text-white font-display mt-5 rounded-md py-3">Buy now</div>
+                                                        </Link>
+                                                    </div>
                                                 </div>
+                                                <div className="flex mt-1">{previewImages.map((item, i) => {
+                                                    const image = item.node
+                                                    return (
+                                                        <img src={image.transformedSrc} key={i} className={`h-12 duration-200 ease-in-out ${image === featuredImage ? 'opacity-100' : 'opacity-75'}`} onClick={() => {
+                                                            setFeaturedImage(image)
+                                                        }} />
+                                                    )
+                                                })}</div>
                                             </div>
                                         )
                                     })}
@@ -158,7 +168,7 @@ export default function starter({ products }) {
                                 </div>
                                 <div aria-hidden="true" className="relative w-full h-96 lg:hidden" />
                                 <div aria-hidden="true" className="relative w-full h-32 lg:hidden" />
-                                <div className="absolute inset-x-0 bottom-0 bg-opacity-75 p-6 rounded-bl-lg rounded-br-lg backdrop-filter backdrop-blur sm:flex sm:items-center sm:justify-between lg:inset-y-0 lg:inset-x-auto lg:w-96 lg:rounded-tl-lg lg:rounded-br-none lg:flex-col lg:items-start">
+                                <div className="absolute inset-x-0 bottom-0 bg-opacity-75 p-6 rounded-bl-lg rounded-br-lg backdrop-filter sm:flex sm:items-center space-y-10 lg:inset-y-0 lg:inset-x-auto lg:w-96 lg:rounded-tl-lg lg:rounded-br-none lg:flex-col lg:justify-center lg:items-start">
                                     <div>
                                         <h2 id="featured-heading" className="text-5xl font-[Anton] uppercase text-black">
                                             Casual Series
@@ -210,7 +220,7 @@ const productsQuery = gql`
                 metafield(namespace: "custom", key: "specs") {
                     value
                 } 
-                images(first: 1) {
+                images(first: 20) {
                     edges {
                     node {
                         transformedSrc

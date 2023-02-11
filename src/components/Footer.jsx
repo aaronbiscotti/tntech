@@ -10,9 +10,11 @@ export function Footer() {
     <footer className="bg-main text-white z-10">
       <Container>
         <div className="py-20 flex justify-between items-start">
-          <div>
-            <h3 className="text-[40px] font-[Anton] uppercase mb-[10px]">Sign Up To Our Newsletter</h3>
-            <p>Be the first to hear about the latest offers</p>
+          <div className="max-w-2xl">
+            <Link href="/">
+              <img src="/logowhite.svg" className="h-[80px] w-auto cursor-pointer mb-5" />
+            </Link>
+            <p>Gaming is our passion and building top-of-the-line gaming computers is our expertise. Our team knows firsthand what it takes to deliver the best gaming experience- from selecting the most powerful processors and graphics cards, to choosing the perfect components for optimal cooling and speed, we’ve got you covered for your budget.</p>
           </div>
 
           <div className="mt-[35px] mb-[35px] flex justify-left flex-wrap gap-x-16">

@@ -26,7 +26,6 @@ export default function ProductPage({ product }) {
             );
         }
     };
-    console.log(variantId);
     const checkout = async (e) => {
         e.preventDefault();
         setIsLoading(true);

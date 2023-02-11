@@ -97,14 +97,11 @@ const features = [
 function Feature({ feature, isActive, className, ...props }) {
   return (
     <div
-      className={clsx(className, { 'opacity-75 hover:opacity-100 duration-100 ease-in-out': !isActive })}
+      className={clsx(className, { 'opacity-100 duration-100 ease-in-out': !isActive })}
       {...props}
     >
       <div
-        className={clsx('w-9 rounded-lg', {
-          'bg-main': isActive,
-          'bg-slate-500': !isActive,
-        })}
+        className={clsx('w-9 rounded-lg bg-main')}
       >
         <div className="h-[40px] flex justify-center items-center">
           <feature.icon />
@@ -176,14 +173,14 @@ function FeaturesDesktop() {
                     static
                     key={feature.name}
                     className={clsx(
-                      'px-5 transition duration-500 ease-in-out [&:not(:hover-visible)]:hover:outline-none hover:opacity-100',
+                      'px-5 transition duration-500 ease-in-out',
                       {
-                        'opacity-60': featureIndex !== selectedIndex,
+                        'opacity-100': featureIndex !== selectedIndex,
                       }
                     )}
                     aria-hidden={featureIndex !== selectedIndex}
                   >
-                    <div className="rounded-xl cursor-pointer hover:opacity-100">
+                    <div className="rounded-xl cursor-pointer">
                       <Image
                         src={feature.image}
                         alt=""

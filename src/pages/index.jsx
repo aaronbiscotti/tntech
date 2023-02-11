@@ -81,7 +81,7 @@ export default function Home({ products }) {
                           <Link key={product.handle} href={`/build-your-pc/products/${product.handle}`}>
                             <div>
                               <p className="font-bold text-2xl">${product.priceRange.minVariantPrice.amount}</p>
-                              <div className="flex justify-center items-center w-full cursor-pointer bg-gray-900 text-white font-display mt-5 rounded-md py-3">Buy now</div>
+                              <div className="flex justify-center items-center w-full cursor-pointer bg-gray-900 text-white font-display mt-5 rounded-md py-3 hover:opacity-80 duration-300 ease-in-out">Buy now</div>
                             </div>
                           </Link>
                         </div>
