@@ -110,20 +110,19 @@ export default function starter({ products }) {
                                 </h2>
 
                                 <div className="grid grid-cols-1 gap-y-10 sm:grid-cols-2 gap-x-6 lg:grid-cols-2 xl:gap-x-8">
-                                    {products.edges.map((item) => {
+                                    {products.edges.map((item, i) => {
                                         const product = item.node
                                         const specs = product.metafield.value
                                         const image = product.images.edges[0].node
-                                        const previewImages = product.images.edges
-                                        const [featuredImage, setFeaturedImage] = useState(image)
+  
                                         return (
-                                            <div>
+                                            <div key={i}>
                                                 <div className="grid grid-cols-4">
                                                     <Link key={product.handle} href={`/build-your-pc/products/${product.handle}`}>
                                                         <a className="group col-span-2">
                                                             <div className="rounded-l h-full max-w-30 overflow-hidden">
                                                                 <img
-                                                                    src={featuredImage.transformedSrc}
+                                                                    src={image.transformedSrc}
                                                                     alt={image.altText}
                                                                     className="h-full object-center object-cover group-hover:opacity-75 duration-100 ease-in"
                                                                 />
@@ -148,14 +147,6 @@ export default function starter({ products }) {
                                                         </Link>
                                                     </div>
                                                 </div>
-                                                <div className="flex mt-1">{previewImages.map((item, i) => {
-                                                    const image = item.node
-                                                    return (
-                                                        <img src={image.transformedSrc} key={i} className={`h-12 duration-200 ease-in-out ${image === featuredImage ? 'opacity-100' : 'opacity-75'}`} onClick={() => {
-                                                            setFeaturedImage(image)
-                                                        }} />
-                                                    )
-                                                })}</div>
                                             </div>
                                         )
                                     })}

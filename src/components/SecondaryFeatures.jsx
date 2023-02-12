@@ -12,6 +12,7 @@ import Link from 'next/link'
 const features = [
   {
     name: 'Starter',
+    nameLC: 'starter',
     link: '/build-your-pc/starter',
     summary: 'Cutting-edge performance.',
     description:
@@ -39,6 +40,7 @@ const features = [
   },
   {
     name: 'Casual',
+    nameLC: 'casual',
     link: '/build-your-pc/casual',
     summary:
       'Next-generation graphics.',
@@ -66,6 +68,7 @@ const features = [
   },
   {
     name: 'Prodigy',
+    nameLC: 'prodigy',
     link: '/build-your-pc/prodigy',
     summary:
       'Wide range expandability',
@@ -103,7 +106,7 @@ function Feature({ feature, isActive, className, ...props }) {
 
   return (
     <div
-      className={clsx('opacity-75 hover:opacity-100 duration-100 ease-in-out')}
+      className="opacity-75 hover:opacity-100 duration-300 ease-in-out"
       onClick={handleClick}
       {...props}
     >
@@ -123,7 +126,7 @@ function Feature({ feature, isActive, className, ...props }) {
       </p>
       <p className="mt-4 text-md">{feature.description}</p>
       <Link href={feature.link}>
-        <button className="w-full bg-gray-900 text-white font-display mt-5 rounded-md py-3">Explore {feature.name} Collection</button>
+      <div className="w-full flex justify-center bg-gray-900 text-white font-display mt-5 rounded-md cursor-pointer py-3">Explore {feature.nameLC} collection</div>
       </Link>
       <div className="rounded-xl cursor-pointer hover:opacity-100">
         <Image
@@ -166,9 +169,8 @@ function FeaturesDesktop() {
         <>
           <Tab.List className="grid grid-cols-3 gap-x-2">
             {features.map((feature, featureIndex) => (
-              <div className={`p-5 rounded-lg ${feature.background}`}>
+              <div key={feature.name} className={`p-5 rounded-lg ${feature.background}`}>
               <Feature
-                key={feature.name}
                 feature={{
                   ...feature,
                   name: (
@@ -183,7 +185,6 @@ function FeaturesDesktop() {
                 />
                   <Tab.Panel
                     static
-                    key={feature.name}
                     className={clsx(
                       'px-5 transition duration-500 ease-in-out [&:not(:hover-visible)]:hover:outline-none hover:opacity-100',
                       {

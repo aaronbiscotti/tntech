@@ -37,30 +37,25 @@ export default function ProductPage({ product }) {
     return (
         <>
             <Header />
-            <div className="relative overflow-hidden h-[140px]" />
+            <div className="relative overflow-hidden h-[70px]" />
             <div className="bg-white">
                 <div className="pt-6">
-                    <div className="flex mx-auto mt-6 max-w-2xl sm:px-6 lg:grid lg:max-w-7xl lg:grid-cols-6 lg:gap-x-8 lg:px-8">
-                        <div className="flex flex-col">
-                            {images.map((image, i) => (
-                                <img key={i} src={image.node.url} alt={image.altText} className="w-full object-cover cursor-pointer rounded-lg mb-4" onClick={() => {
-                                    setFeaturedImage(image)
-                                }} />
-                            ))}
-                        </div>
-                        <div className="relative rounded-lg col-span-5">
-                            <img src={featuredImage.node.url} className="object-cover rounded-lg" />
-                        </div>
-                    </div>
-                    {/* Product info */}
                     <div className="mx-auto max-w-2xl px-4 pt-10 pb-16 sm:px-6 lg:grid lg:max-w-7xl lg:grid-cols-4 lg:grid-rows-[auto,auto,1fr] lg:gap-x-8 lg:px-8 lg:pt-16 lg:pb-24">
                         <div className="lg:col-span-2 lg:border-r lg:border-gray-200 lg:pr-8">
-                            <h1 className="text-4xl font-[Anton] uppercase text-main sm:text-5xl">{product.title}</h1>
-                            <h1 className="text-3xl font-display mt-3 text-main sm:text-3xl">${product.priceRange.minVariantPrice.amount}</h1>
                         </div>
                         <div className="mt-4 lg:row-span-3 lg:col-span-2 lg:mt-0">
+                            <h1 className="text-4xl font-[Anton] uppercase text-main sm:text-5xl">{product.title}</h1>
+                            <div className="w-[100px] h-1 bg-black mt-4 mb-7" />
+                            <h1 className="text-3xl font-display mt-3 text-main sm:text-3xl">${product.priceRange.minVariantPrice.amount}</h1>
+                            <div className="mt-5">
+                                <div className="space-y-6">
+                                    <div className="text-base text-gray-900">
+                                        {ReactHtmlParser(product.descriptionHtml, { transform })}
+                                    </div>
+                                </div>
+                            </div> 
                             <div className="mb-10">
-                                <h1 className="font-display font-semibold text-2xl mb-5">Specifications</h1>
+                                <h1 className="font-display font-semibold text-xl mb-2 mt-5">Specifications</h1>
                                 <ul>
                                     {specs.map((spec, i) => (
                                         <li key={i} className="flex items-center text-sm font-display">
@@ -88,12 +83,15 @@ export default function ProductPage({ product }) {
                         </div>
 
                         <div className="lg:col-span-2 lg:col-start-1 lg:border-r lg:border-gray-200 lg:pb-16 lg:pr-8">
-                            <div className="mt-5">
-                                <div className="space-y-6">
-                                    <div className="text-base text-gray-900">
-                                        {ReactHtmlParser(product.descriptionHtml, { transform })}
-                                    </div>
-                                </div>
+                            <div className="relative rounded-lg max-w-xl">
+                                <img src={featuredImage.node.url} className="object-cover rounded-lg" />
+                            </div>
+                            <div className="flex justify-center mt-2 space-x-2">
+                                {images.map((image, i) => (
+                                    <img key={i} src={image.node.url} alt={image.altText} className="h-14 object-cover cursor-pointer rounded-lg mb-4" onClick={() => {
+                                        setFeaturedImage(image)
+                                    }} />
+                                ))}
                             </div>
                         </div>
                     </div>

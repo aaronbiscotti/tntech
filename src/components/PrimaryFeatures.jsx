@@ -60,9 +60,6 @@ export function PrimaryFeatures() {
             </button>
           </a>
         </div>
-        {/* <div className="absolute top-1/3 left-1/3 translate-x-[10%] -translate-y-[42%]">
-          <img src="/hero_image.png" className="h-full" />
-        </div> */}
       </Container>
     </section>
   )

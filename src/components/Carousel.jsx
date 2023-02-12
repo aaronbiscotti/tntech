@@ -1,4 +1,4 @@
-import React, { useState, useRef } from "react";
+import React, { useState, useRef, useEffect } from "react";
 
 const Carousel = ({ children }) => {
     const [currentIndex, setCurrentIndex] = useState(0);
@@ -16,6 +16,14 @@ const Carousel = ({ children }) => {
         setCurrentIndex(prevIndex);
         setPreviewIndex(prevIndex === 0 ? children.length - 1 : prevIndex - 1);
     };
+
+    useEffect(() => {
+        const intervalId = setInterval(() => {
+            handleNext();
+        }, 3000);
+
+        return () => clearInterval(intervalId);
+    }, [currentIndex]);
 
     return (
         <div className="h-[33.8rem] relative">
