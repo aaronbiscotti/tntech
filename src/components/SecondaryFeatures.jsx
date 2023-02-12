@@ -1,4 +1,4 @@
-import { useId } from 'react'
+import { useId, useState } from 'react'
 import Image from 'next/image'
 import { Tab } from '@headlessui/react'
 import clsx from 'clsx'
@@ -95,13 +95,25 @@ const features = [
 ]
 
 function Feature({ feature, isActive, className, ...props }) {
+  const [isClicked, setIsClicked] = useState(false);
+
+  const handleClick = () => {
+    setIsClicked(!isClicked);
+  }
+
   return (
     <div
-      className={clsx(className, { 'opacity-100 duration-100 ease-in-out': !isActive })}
+      className={clsx('opacity-75 hover:opacity-100 duration-100 ease-in-out focus:bg-black', {
+        'opacity-100 text-main': isClicked,
+      })}
+      onClick={handleClick}
       {...props}
     >
       <div
-        className={clsx('w-9 rounded-lg bg-main')}
+        className={clsx('w-9 rounded-lg', {
+          'bg-main': isActive,
+          'bg-slate-500': !isActive,
+        })}
       >
         <div className="h-[40px] flex justify-center items-center">
           <feature.icon />
@@ -117,8 +129,15 @@ function Feature({ feature, isActive, className, ...props }) {
       </p>
       <p className="mt-4 text-md">{feature.description}</p>
       <Link href={feature.link}>
-        <div className="flex justify-center items-center w-full bg-gray-900 text-white font-display mt-5 rounded-md py-3">Explore &nbsp;{feature.name}&nbsp; Collection</div>
+        <button className="w-full bg-gray-900 text-white font-display mt-5 rounded-md py-3">Explore {feature.name} Collection</button>
       </Link>
+      <div className="rounded-xl cursor-pointer hover:opacity-100">
+        <Image
+          src={feature.image}
+          alt=""
+          className="object-contain"
+        />
+      </div>
     </div>
   )
 }
@@ -167,50 +186,7 @@ function FeaturesDesktop() {
                 }}
                 isActive={featureIndex === selectedIndex}
                   className="relative"
-              />
-                <Link href={feature.link}>
-                  <Tab.Panel
-                    static
-                    key={feature.name}
-                    className={clsx(
-                      'px-5 transition duration-500 ease-in-out',
-                      {
-                        'opacity-100': featureIndex !== selectedIndex,
-                      }
-                    )}
-                    aria-hidden={featureIndex !== selectedIndex}
-                  >
-                    <div className="rounded-xl cursor-pointer">
-                      <Image
-                        src={feature.image}
-                        alt=""
-                        className="object-contain"
-                      />
-                    </div>
-                  </Tab.Panel>
-                </Link>
-                {/* <div className="order-1">
-                  <ul className="mt-4 divide-y divide-slate-200 text-base tracking-tight text-main bg-white rounded-lg p-2">
-                    {feature.perks.map((perk) => (
-                      <li key={perk} className="flex py-2 items-center">
-                        <svg
-                          aria-hidden="true"
-                          className="h-8 w-8 flex-none fill-slate-600"
-                        >
-                          <path d="M11.83 15.795a1 1 0 0 0-1.66 1.114l1.66-1.114Zm9.861-4.072a1 1 0 1 0-1.382-1.446l1.382 1.446ZM14.115 21l-.83.557a1 1 0 0 0 1.784-.258L14.115 21Zm.954.3c1.29-4.11 3.539-6.63 6.622-9.577l-1.382-1.446c-3.152 3.013-5.704 5.82-7.148 10.424l1.908.598Zm-4.9-4.391 3.115 4.648 1.661-1.114-3.114-4.648-1.662 1.114Z" />
-                        </svg>
-                        <span className="ml-2 font-display text-sm">{perk}</span>
-                      </li>
-                    ))}
-                  </ul>
-                </div> */}
-              </div>
-            ))}
-          </Tab.List>
-          {/* <Tab.Panels className="relative mt-5 overflow-hidden rounded-4xl bg-slate-200 px-14 py-16 xl:px-16">
-            <div className="-mx-5 flex">
-              {features.map((feature, featureIndex) => (
-                <Link href={feature.link}>
+                />
                   <Tab.Panel
                     static
                     key={feature.name}
@@ -221,20 +197,11 @@ function FeaturesDesktop() {
                       }
                     )}
                     aria-hidden={featureIndex !== selectedIndex}
-                  >
-                    <div className="rounded-xl cursor-pointer hover:opacity-100">
-                      <Image
-                        src={feature.image}
-                        alt=""
-                        className="object-contain"
-                      />
-                    </div>
-                  </Tab.Panel>
-                </Link>
-              ))}
-            </div>
-            <div className="pointer-events-none absolute inset-0 rounded-4xl ring-1 ring-inset ring-slate-900/10" />
-          </Tab.Panels> */}
+                >
+                </Tab.Panel>
+              </div>
+            ))}
+          </Tab.List>
         </>
       )}
     </Tab.Group>

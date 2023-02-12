@@ -20,13 +20,13 @@ const Carousel = ({ children }) => {
     return (
         <div className="h-[33.8rem] relative">
             <button
-                className="absolute inset-y-0 -left-20 rounded z-10 p-3 px-5 bg-gray-800 text-white hover:bg-gray-900 opacity-100 hover:opacity-80 duration-300 ease-in-out"
+                className="absolute inset-y-0 -left-20 rounded z-10 p-3 px-5 h-20 my-auto bg-gray-800 text-white hover:bg-gray-900 opacity-100 hover:opacity-80 duration-300 ease-in-out"
                 onClick={handlePrev}
             >
                 &larr;
             </button>
             <button
-                className="absolute inset-y-0 -right-20 p-3 rounded px-5 bg-gray-800 text-white hover:bg-gray-900 opacity-100 hover:opacity-80 duration-300 ease-in-out"
+                className="absolute inset-y-0 -right-20 p-3 rounded h-20 px-5 my-auto bg-gray-800 text-white hover:bg-gray-900 opacity-100 hover:opacity-80 duration-300 ease-in-out"
                 onClick={handleNext}
             >
                 &rarr;
