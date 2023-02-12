@@ -103,19 +103,13 @@ function Feature({ feature, isActive, className, ...props }) {
 
   return (
     <div
-      className={clsx('opacity-75 hover:opacity-100 duration-100 ease-in-out focus:bg-black', {
-        'opacity-100 text-main': isClicked,
-      })}
+      className={clsx('opacity-75 hover:opacity-100 duration-100 ease-in-out')}
       onClick={handleClick}
       {...props}
     >
       <div
-        className={clsx('w-9 rounded-lg', {
-          'bg-main': isActive,
-          'bg-slate-500': !isActive,
-        })}
       >
-        <div className="h-[40px] flex justify-center items-center">
+        <div className="h-[40px] flex justify-center items-center bg-black rounded-lg w-9">
           <feature.icon />
         </div>
       </div>
