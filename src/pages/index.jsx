@@ -41,11 +41,13 @@ export default function Home({ products }) {
           aria-labelledby="pricing-title"
           className="relative scroll-mt-14 sm:scroll-mt-32 mt-10"
         >
+
           <Container className="flex justify-between w-full items-center h-full relative">
             <div className="bg-white h-full w-full relative">
               <div className="py-16 max-w-7xl h-full relative">
                 <h2 className="text-6xl text-center font-[Anton] uppercase text-gray-900 mb-10">FEATURED BUILDS</h2>
                 {/* Featured build */}
+                
                 <Carousel className="h-full w-full">
                   {products.edges.map((item, i) => {
                     const product = item.node
@@ -89,9 +91,11 @@ export default function Home({ products }) {
                     )
                   })}
                 </Carousel>
+
               </div>
             </div>
           </Container>
+
         </section>
         <SecondaryFeatures />
         <HowItWorks />

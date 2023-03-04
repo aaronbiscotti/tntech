@@ -95,33 +95,33 @@ import { Container } from '@/components/Container'
 
 export function Header() {
   return (
-    <header className="absolute z-10 w-full py-10 font-display">
+    <header className="absolute z-10 w-full py-3 font-display sticky top-0 bg-gray-700">
       <Container className="relative">
         <nav className="relative z-50 text-md">
           <ul className="flex items-center">
             <li>
               <Link href="/">
-                <img src="/logoblack.svg" className="h-[80px] w-auto cursor-pointer" />
+                <img src="/logowhite.svg" className="h-[80px] w-auto cursor-pointer" />
               </Link>
             </li>
 
             <li className="ml-12 hidden md:block">
               <Link href="/build-your-pc/starter">
-                <a className="rounded-lg py-1 px-2 text-main font-bold">
+                <a className="rounded-lg py-1 px-2 text-white font-bold">
                   Starter Series
                 </a>
               </Link>
             </li>
             <li className="ml-6 hidden md:block">
               <Link href="/build-your-pc/casual">
-                <a className="rounded-lg py-1 px-2 text-main font-bold">
+                <a className="rounded-lg py-1 px-2 text-white font-bold">
                   Casual Series
                 </a>
               </Link>
             </li>
             <li className="ml-6 hidden md:block">
               <Link href="/build-your-pc/prodigy">
-                <a className="rounded-lg py-1 px-2 text-main font-bold">
+                <a className="rounded-lg py-1 px-2 text-white font-bold">
                   Prodigy Series
                 </a>
               </Link>

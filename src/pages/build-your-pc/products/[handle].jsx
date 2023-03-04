@@ -69,7 +69,7 @@ export default function ProductPage({ product }) {
                                 <button
                                     onClick={checkout}
                                     type="submit"
-                                    className="flex w-full items-center justify-center rounded-md border border-transparent bg-main py-3 px-8 text-base font-medium duration-100 ease-in text-white hover:bg-indigo-800 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2"
+                                    className="flex w-full items-center justify-center rounded-md border border-transparent bg-main py-3 px-8 mb-8 text-base font-medium duration-100 ease-in text-white hover:bg-indigo-800 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2"
                                 >
                                     {isLoading && (
                                         <svg className="animate-spin -ml-1 mr-3 h-5 w-5 text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">

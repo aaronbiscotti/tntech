@@ -9,7 +9,7 @@ export function Footer() {
   return (
     <footer className="bg-main text-white z-10">
       <Container>
-        <div className="py-20 flex justify-between items-start">
+        <div className="py-20 lg:flex lg:justify-between items-start">
           <div className="max-w-2xl">
             <Link href="/">
               <img src="/logowhite.svg" className="h-[80px] w-auto cursor-pointer mb-5" />
