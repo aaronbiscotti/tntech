@@ -57,7 +57,7 @@ export function featuredBuilds(props) {
   const { products } = props || {}
 
   return (
-    <Container className="relative flex h-full w-full items-center justify-between">
+    <Container className="relative flex w-full items-center justify-between">
       <div className="relative h-full w-full bg-white">
         <div className="relative h-full max-w-7xl py-16">
           <h2 className="mb-10 text-center font-[Anton] text-6xl uppercase text-gray-900">
