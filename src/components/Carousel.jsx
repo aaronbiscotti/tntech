@@ -20,7 +20,7 @@ const Carousel = ({ children }) => {
     useEffect(() => {
         const intervalId = setInterval(() => {
             handleNext();
-        }, 3000);
+        }, 5000);
 
         return () => clearInterval(intervalId);
     }, [currentIndex]);

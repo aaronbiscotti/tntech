@@ -106,7 +106,7 @@ function Feature({ feature, isActive, className, ...props }) {
 
   return (
     <div
-      className="opacity-75 hover:opacity-100 duration-300 ease-in-out"
+      className="hover:opacity-75 duration-300 ease-in-out"
       onClick={handleClick}
       {...props}
     >

@@ -9,19 +9,18 @@ import { Testimonials } from '@/components/Testimonials'
 import { Pricing } from '@/components/Pricing'
 import { About } from '@/components/About'
 import HowItWorks from '@/components/HowItWorks'
+import FeaturedBuilds from '@/components/FeaturedBuilds';
 import { storefront } from 'utils'
 import Link from 'next/link'
 import { useState } from 'react'
 import Carousel from '@/components/Carousel'
 
-
 const icons = [
-  "https://content.ibuypower.com/cdn-cgi/image/width=3840,format=auto,quality=75/https://content.ibuypower.com/Images/Base/icon_cpu.svg",
-  "https://content.ibuypower.com/cdn-cgi/image/width=3840,format=auto,quality=75/https://content.ibuypower.com/Images/Base/icon_gpu.svg",
-  "https://content.ibuypower.com/cdn-cgi/image/width=3840,format=auto,quality=75/https://content.ibuypower.com/Images/Base/icon_memory.svg",
-  "https://content.ibuypower.com/cdn-cgi/image/width=3840,format=auto,quality=75/https://content.ibuypower.com/Images/Base/icon_hard drive.svg",
+  'https://content.ibuypower.com/cdn-cgi/image/width=3840,format=auto,quality=75/https://content.ibuypower.com/Images/Base/icon_cpu.svg',
+  'https://content.ibuypower.com/cdn-cgi/image/width=3840,format=auto,quality=75/https://content.ibuypower.com/Images/Base/icon_gpu.svg',
+  'https://content.ibuypower.com/cdn-cgi/image/width=3840,format=auto,quality=75/https://content.ibuypower.com/Images/Base/icon_memory.svg',
+  'https://content.ibuypower.com/cdn-cgi/image/width=3840,format=auto,quality=75/https://content.ibuypower.com/Images/Base/icon_hard drive.svg',
 ]
-
 
 export default function Home({ products }) {
   return (
@@ -39,63 +38,10 @@ export default function Home({ products }) {
         <section
           id="featured"
           aria-labelledby="pricing-title"
-          className="relative scroll-mt-14 sm:scroll-mt-32 mt-10"
+          className="relative mt-10 scroll-mt-14 sm:scroll-mt-32"
         >
-
-          <Container className="flex justify-between w-full items-center h-full relative">
-            <div className="bg-white h-full w-full relative">
-              <div className="py-16 max-w-7xl h-full relative">
-                <h2 className="text-6xl text-center font-[Anton] uppercase text-gray-900 mb-10">FEATURED BUILDS</h2>
-                {/* Featured build */}
-                
-                <Carousel className="h-full w-full">
-                  {products.edges.map((item, i) => {
-                    const product = item.node
-                    const specs = product.metafield.value
-                    const image = product.images.edges[0].node
-                    return (
-                      <div className="grid grid-cols-3" key={i}>
-                        <Link key={product.handle} href={`/build-your-pc/products/${product.handle}`}>
-                          <a className="group col-span-2">
-                            <div className="rounded-l h-full max-w-30 overflow-hidden">
-                              <img
-                                src={image.transformedSrc}
-                                alt={image.altText}
-                                className="h-full object-center object-cover group-hover:opacity-75 duration-100 ease-in"
-                              />
-                            </div>
-                          </a>
-                        </Link>
-                        <div className="col-span-1 h-full w-full bg-secondary rounded-r px-5 pb-5 flex flex-col justify-between pr-20">
-                          <div>
-                            <div className="mt-4 flex items-center justify-between text-base font-medium mb-5">
-                              <h3 className="text-lg">{product.title}</h3>
-                            </div>
-                            <ul>
-                              {specs.split('\n').map((spec, i) => (
-                                <li key={i} className="flex items-center text-sm font-display">
-                                  <img src={icons[i]} className="w-10 h-10" />
-                                  {spec}
-                                </li>
-                              ))}
-                            </ul>
-                          </div>
-                          <Link key={product.handle} href={`/build-your-pc/products/${product.handle}`}>
-                            <div>
-                              <p className="font-bold text-2xl">${product.priceRange.minVariantPrice.amount}</p>
-                              <div className="flex justify-center items-center w-full cursor-pointer bg-gray-900 text-white font-display mt-5 rounded-md py-3 hover:opacity-80 duration-300 ease-in-out">Buy now</div>
-                            </div>
-                          </Link>
-                        </div>
-                      </div>
-                    )
-                  })}
-                </Carousel>
-
-              </div>
-            </div>
-          </Container>
-
+          {/* <FeaturedBuilds props={products}/> */}
+          {featuredBuilds({ products })}
         </section>
         <SecondaryFeatures />
         <HowItWorks />
@@ -107,12 +53,87 @@ export default function Home({ products }) {
   )
 }
 
+export function featuredBuilds(props) {
+  const { products } = props || {}
+
+  return (
+    <Container className="relative flex h-full w-full items-center justify-between">
+      <div className="relative h-full w-full bg-white">
+        <div className="relative h-full max-w-7xl py-16">
+          <h2 className="mb-10 text-center font-[Anton] text-6xl uppercase text-gray-900">
+            FEATURED BUILDS
+          </h2>
+
+          <Carousel className="h-full w-full">
+            {products.edges.map((item, i) => {
+              const product = item.node
+              const specs = product.metafield.value
+              const image = product.images.edges[0].node
+              return (
+                // <div className="grid grid-cols-3" key={i}>
+                <div className="h-full lg:flex" key={i}>
+                  <Link
+                    key={product.handle}
+                    href={`/build-your-pc/products/${product.handle}`}
+                  >
+                    <a className="group col-span-2">
+                      <div className="rounded-l">
+                        <img
+                          src={image.transformedSrc}
+                          alt={image.altText}
+                          className="object-cover object-center duration-100 ease-in group-hover:opacity-75"
+                        />
+                      </div>
+                    </a>
+                  </Link>
+                  {/* <div className="col-span-1 h-full w-full bg-secondary rounded-r px-5 pb-5 flex flex-col justify-between pr-20"> */}
+                  <div className="col-span-1 flex h-full w-full flex-col justify-between rounded-r bg-secondary px-5 pb-5 pr-20">
+                    <div>
+                      <div className="mt-4 mb-5 flex items-center justify-between text-base font-medium">
+                        <h3 className="text-lg">{product.title}</h3>
+                      </div>
+                      <ul>
+                        {specs.split('\n').map((spec, i) => (
+                          <li
+                            key={i}
+                            className="flex items-center font-display text-sm"
+                          >
+                            <img src={icons[i]} className="h-10 w-10" />
+                            {spec}
+                          </li>
+                        ))}
+                      </ul>
+                    </div>
+                    <Link
+                      key={product.handle}
+                      href={`/build-your-pc/products/${product.handle}`}
+                    >
+                      <div>
+                        <p className="text-2xl font-bold">
+                          ${product.priceRange.minVariantPrice.amount}
+                        </p>
+                        <div className="mt-5 flex w-full cursor-pointer items-center justify-center rounded-md bg-gray-900 py-3 font-display text-white duration-300 ease-in-out hover:opacity-80">
+                          Buy now
+                        </div>
+                      </div>
+                    </Link>
+                  </div>
+                </div>
+              )
+            })}
+          </Carousel>
+        </div>
+      </div>
+    </Container>
+  )
+}
+
 export async function getStaticProps() {
   const { data } = await storefront(productsQuery)
   return {
     props: {
       products: data.products,
-    }
+    },
   }
 }
 
@@ -120,29 +141,29 @@ const gql = String.raw
 
 const productsQuery = gql`
   query Products {
-      products(first:3, query:"tag:featured") {
-          edges {
-              node {
-                title
-                handle
-                priceRange {
-                    minVariantPrice {
-                    amount
-                    }
-                }
-                metafield(namespace: "custom", key: "specs") {
-                  value
-                } 
-                images(first: 1) {
-                    edges {
-                    node {
-                        transformedSrc
-                        altText
-                    }
-                    }
-                }
-              }
+    products(first: 3, query: "tag:featured") {
+      edges {
+        node {
+          title
+          handle
+          priceRange {
+            minVariantPrice {
+              amount
+            }
           }
+          metafield(namespace: "custom", key: "specs") {
+            value
+          }
+          images(first: 1) {
+            edges {
+              node {
+                transformedSrc
+                altText
+              }
+            }
+          }
+        }
       }
+    }
   }
 `

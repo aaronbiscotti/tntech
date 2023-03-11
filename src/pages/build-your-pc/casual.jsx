@@ -20,7 +20,7 @@ export default function starter({ products }) {
         <>
             <div>
                 <Header />
-                <div className="relative overflow-hidden h-[140px]" />
+                <div className="relative overflow-hidden h-[75px]" />
                 <div>
                     {/* Mobile menu */}
                     <Transition.Root show={mobileMenuOpen} as={Fragment}>
@@ -96,7 +96,7 @@ export default function starter({ products }) {
                     <main>
                         <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:max-w-7xl lg:px-8 relative">
                             {/* Product grid */}
-                            <div className="py-20 text-center mb-10 bg-cover bg-no-repeat bg-top">
+                            <div className=" text-center mb-10 bg-cover bg-no-repeat bg-top">
                                 <div>
                                     <h1 className="text-6xl font-[Anton] uppercase">Casual Series</h1>
                                     <p className="mt-4 max-w-3xl mx-auto text-base">

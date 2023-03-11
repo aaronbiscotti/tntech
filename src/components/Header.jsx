@@ -1,158 +1,131 @@
-import { Fragment } from 'react'
 import Link from 'next/link'
-import { Popover, Transition } from '@headlessui/react'
-import clsx from 'clsx'
-import { ButtonLink } from '@/components/Button'
-import { Container } from '@/components/Container'
 
-// function MobileNavigation() {
-//   return (
-//     <Popover>
-//       {({ open, close }) => (
-//         <>
-//           <Popover.Button className="relative z-10 flex h-8 w-8 items-center justify-center [&:not(:focus-visible)]:focus:outline-none">
-//             <span className="sr-only">Toggle Navigation</span>
-//             <svg
-//               aria-hidden="true"
-//               className="h-3.5 w-3.5 overflow-visible stroke-white"
-//               fill="none"
-//               strokeWidth={2}
-//               strokeLinecap="round"
-//             >
-//               <path
-//                 d="M0 1H14M0 7H14M0 13H14"
-//                 className={clsx('origin-center transition', {
-//                   'scale-90 opacity-0': open,
-//                 })}
-//               />
-//               <path
-//                 d="M2 2L12 12M12 2L2 12"
-//                 className={clsx('origin-center transition', {
-//                   'scale-90 opacity-0': !open,
-//                 })}
-//               />
-//             </svg>
-//           </Popover.Button>
-//           <Transition.Root>
-//             <Transition.Child
-//               as={Fragment}
-//               enter="duration-150 ease-out"
-//               enterFrom="opacity-0"
-//               enterTo="opacity-100"
-//               leave="duration-150 ease-in"
-//               leaveFrom="opacity-100"
-//               leaveTo="opacity-0"
-//             >
-//               <Popover.Overlay className="fixed inset-0 bg-slate-300/50" />
-//             </Transition.Child>
-//             <Transition.Child
-//               as={Fragment}
-//               enter="duration-150 ease-out"
-//               enterFrom="opacity-0 scale-95"
-//               enterTo="opacity-100 scale-100"
-//               leave="duration-100 ease-in"
-//               leaveFrom="opacity-100 scale-100"
-//               leaveTo="opacity-0 scale-95"
-//             >
-//               <Popover.Panel
-//                 as="ul"
-//                 className="absolute inset-x-0 top-full mt-4 origin-top space-y-4 rounded-2xl  p-6 text-lg tracking-tight text-white shadow-xl ring-1 ring-white/5"
-//               >
-//                 <li>
-//                   <Link href="#features">
-//                     <a className="block w-full" onClick={() => close()}>
-//                       Features
-//                     </a>
-//                   </Link>
-//                 </li>
-//                 <li>
-//                   <Link href="#testimonials">
-//                     <a className="block w-full" onClick={() => close()}>
-//                       Testimonials
-//                     </a>
-//                   </Link>
-//                 </li>
-//                 <li>
-//                   <Link href="#pricing">
-//                     <a className="block w-full" onClick={() => close()}>
-//                       Pricing
-//                     </a>
-//                   </Link>
-//                 </li>
-//                 <li className="border-t border-slate-300/40 pt-4">
-//                   <Link href="/login">
-//                     <a className="block w-full">Sign in</a>
-//                   </Link>
-//                 </li>
-//               </Popover.Panel>
-//             </Transition.Child>
-//           </Transition.Root>
-//         </>
-//       )}
-//     </Popover>
-//   )
-// }
+import { Fragment } from 'react'
+import { Disclosure, Menu, Transition } from '@headlessui/react'
+import { MenuIcon, XIcon } from '@heroicons/react/outline'
+import { EyeIcon } from '@heroicons/react/solid'
+
+const navigation = [
+  { name: 'Starter', href: '/build-your-pc/starter', current: false },
+  { name: 'Casual', href: '/build-your-pc/casual', current: false },
+  { name: 'Prodify', href: '/build-your-pc/prodigy', current: false },
+]
+
+function classNames(...classes) {
+  return classes.filter(Boolean).join(' ')
+}
 
 export function Header() {
   return (
-    <header className="absolute z-10 w-full py-3 font-display sticky top-0 bg-gray-700">
-      <Container className="relative">
-        <nav className="relative z-50 text-md">
-          <ul className="flex items-center">
-            <li>
-              <Link href="/">
-                <img src="/logowhite.svg" className="h-[80px] w-auto cursor-pointer" />
-              </Link>
-            </li>
+    <Disclosure as="nav" className="bg-gray-800">
+      {({ open }) => (
+        <>
+          <div className="mx-auto max-w-7xl px-4 py-3 sm:px-6 lg:px-8">
+            <div className="flex h-16 justify-between">
+              <div className="flex">
+                <div className="-ml-2 mr-2 flex items-center md:hidden">
+                  {/* Mobile menu button */}
+                  <Disclosure.Button className="inline-flex items-center justify-center rounded-md p-2 text-gray-400 hover:bg-gray-600 hover:text-white focus:outline-none focus:ring-2 focus:ring-inset focus:ring-white">
+                    <span className="sr-only">Open main menu</span>
+                    {open ? (
+                      <XIcon className="block h-6 w-6" aria-hidden="true" />
+                    ) : (
+                      <MenuIcon className="block h-6 w-6" aria-hidden="true" />
+                    )}
+                  </Disclosure.Button>
+                </div>
+                <div className="flex flex-shrink-0 items-center">
+                  <Link href="/">
+                    <div className="flex cursor-pointer items-center gap-x-3">
+                      <img
+                        className="h-16 w-auto"
+                        src="/logowhite.svg"
+                        alt="TnTech"
+                      />
+                      <h1 className="hidden text-2xl font-bold text-white md:block">
+                        TnTech
+                      </h1>
+                    </div>
+                  </Link>
+                </div>
+                <div className="hidden md:ml-6 md:flex md:items-center md:space-x-4">
+                  {navigation.map((item) => (
+                    <a
+                      key={item.name}
+                      href={item.href}
+                      className={classNames(
+                        item.current
+                          ? 'bg-gray-900 text-white'
+                          : 'text-gray-300 hover:bg-gray-700 hover:text-white',
+                        'rounded-md px-3 py-2 text-sm font-medium'
+                      )}
+                      aria-current={item.current ? 'page' : undefined}
+                    >
+                      {item.name}
+                    </a>
+                  ))}
+                </div>
+              </div>
+              <div className="flex items-center">
+                <div className="flex-shrink-0">
+                  <Link href="/prebuilt-pcs">
+                    <button
+                      type="button"
+                      className="relative inline-flex items-center rounded-md border border-transparent bg-indigo-500 px-4 py-2 text-sm font-medium text-white shadow-sm hover:bg-indigo-600 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2 focus:ring-offset-gray-800"
+                    >
+                      <EyeIcon
+                        className="-ml-1 mr-2 h-5 w-5"
+                        aria-hidden="true"
+                      />
+                      <span>View full collection</span>
+                    </button>
+                  </Link>
+                </div>
+                <div className="hidden md:ml-4 md:flex md:flex-shrink-0 md:items-center">
+                  <button
+                    type="button"
+                    className="rounded-full bg-gray-800 p-1 text-gray-400 hover:text-white focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-gray-800"
+                  ></button>
 
-            <li className="ml-12 hidden md:block">
-              <Link href="/build-your-pc/starter">
-                <a className="rounded-lg py-1 px-2 text-white font-bold">
-                  Starter Series
-                </a>
-              </Link>
-            </li>
-            <li className="ml-6 hidden md:block">
-              <Link href="/build-your-pc/casual">
-                <a className="rounded-lg py-1 px-2 text-white font-bold">
-                  Casual Series
-                </a>
-              </Link>
-            </li>
-            <li className="ml-6 hidden md:block">
-              <Link href="/build-your-pc/prodigy">
-                <a className="rounded-lg py-1 px-2 text-white font-bold">
-                  Prodigy Series
-                </a>
-              </Link>
-            </li>
+                  {/* Profile dropdown */}
+                  <Menu as="div" className="relative ml-3">
+                    <Transition
+                      as={Fragment}
+                      enter="transition ease-out duration-200"
+                      enterFrom="transform opacity-0 scale-95"
+                      enterTo="transform opacity-100 scale-100"
+                      leave="transition ease-in duration-75"
+                      leaveFrom="transform opacity-100 scale-100"
+                      leaveTo="transform opacity-0 scale-95"
+                    ></Transition>
+                  </Menu>
+                </div>
+              </div>
+            </div>
+          </div>
 
-            
-          
-            <li className="ml-auto hidden md:block">
-              <ButtonLink href="/prebuilt-pcs" className="bg-main">
-                <span>
-                  View full collection
-                </span>
-              </ButtonLink>
-            </li>
-            {/* <li className="ml-5 -mr-1 md:hidden">
-              <MobileNavigation />
-            </li> */}
-          </ul>
-        </nav>
-      </Container>
-    </header>
+          <Disclosure.Panel className="md:hidden">
+            <div className="space-y-1 px-2 pt-2 pb-3 sm:px-3">
+              {navigation.map((item) => (
+                <Disclosure.Button
+                  key={item.name}
+                  as="a"
+                  href={item.href}
+                  className={classNames(
+                    item.current
+                      ? 'bg-gray-900 text-white'
+                      : 'text-gray-300 hover:bg-gray-700 hover:text-white',
+                    'block rounded-md px-3 py-2 text-base font-medium'
+                  )}
+                  aria-current={item.current ? 'page' : undefined}
+                >
+                  {item.name}
+                </Disclosure.Button>
+              ))}
+            </div>
+          </Disclosure.Panel>
+        </>
+      )}
+    </Disclosure>
   )
 }
-
-// function navItem(name, link) {
-//   return(<li className="ml-6 hidden md:block">
-//     <Link href={link}>
-//       <a href="#" className="group text-white transition duration-300">
-//         {name}
-//         <span className="block h-0.5 max-w-0 bg-purple-400 transition-all duration-500 group-hover:max-w-full"></span>
-//       </a>
-//     </Link>
-//   </li>);
-// }
