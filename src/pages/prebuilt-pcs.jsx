@@ -123,7 +123,7 @@ export default function starter({ products }) {
                                                                 <img
                                                                     src={image.transformedSrc}
                                                                     alt={image.altText}
-                                                                    className="h-full object-center object-cover group-hover:opacity-75 duration-100 ease-in"
+                                                                    className="max-h-[400px] h-full object-center object-cover group-hover:opacity-75 duration-100 ease-in"
                                                                 />
                                                             </div>
                                                         </a>
