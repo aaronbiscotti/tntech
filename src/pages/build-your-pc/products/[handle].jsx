@@ -85,7 +85,7 @@ export default function ProductPage({ product }) {
                             <div className="relative rounded-lg max-w-xl">
                                 <img src={featuredImage.node.url} className="object-cover rounded-lg" />
                             </div>
-                            <div className="flex justify-center mt-2 space-x-2">
+                            <div className="flex justify-center mt-2 space-x-2 overflow-x-auto">
                                 {images.map((image, i) => (
                                     <img key={i} src={image.node.url} alt={image.altText} className="h-14 object-cover cursor-pointer rounded-lg mb-4" onClick={() => {
                                         setFeaturedImage(image)
