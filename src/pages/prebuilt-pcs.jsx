@@ -96,7 +96,7 @@ export default function starter({ products }) {
                     <main>
                         <div className="max-w-3xl -mt-20 mx-auto px-4 sm:px-6 lg:max-w-7xl lg:px-8 relative">
                             {/* Product grid */}
-                            <div className="sm:py-20 text-center mb-10 bg-cover bg-no-repeat bg-top">
+                            <div className="mb-20 sm:py-20 text-center bg-cover bg-no-repeat bg-top">
                                 <div>
                                     <h1 className="text-6xl font-[Anton] uppercase">Complete Series</h1>
                                     <p className="mt-4 max-w-3xl mx-auto text-base">

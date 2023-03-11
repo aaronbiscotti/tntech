@@ -121,7 +121,7 @@ export default function starter({ products }) {
           </Transition.Root>
 
           <main>
-            <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:max-w-7xl lg:px-8 relative">
+            <div className="mb-20 max-w-3xl mx-auto px-4 sm:px-6 lg:max-w-7xl lg:px-8 relative">
               {/* Product grid */}
               <div className="mb-20 bg-cover bg-top bg-no-repeat py-5 text-center">
                 <div>
@@ -197,10 +197,7 @@ export default function starter({ products }) {
                 </div>
               </section>
 
-              <section
-                aria-labelledby="featured-heading"
-                className="relative mt-16 mb-10 overflow-hidden rounded-lg lg:h-96"
-              >
+              <section aria-labelledby="featured-heading" className="hidden lg:block relative mt-16 rounded-lg overflow-hidden lg:h-96 mb-20">
                 <div className="absolute inset-0 bg-[#F5F5F8]">
                   <img
                     src="/computer.svg"

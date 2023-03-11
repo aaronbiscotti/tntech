@@ -94,7 +94,7 @@ export default function starter({ products }) {
                     </Transition.Root>
 
                     <main>
-                        <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:max-w-7xl lg:px-8 relative">
+                        <div className="max-w-3xl mb-20 mx-auto px-4 sm:px-6 lg:max-w-7xl lg:px-8 relative">
                             {/* Product grid */}
                             <div className="mb-20 bg-cover bg-top bg-no-repeat py-5 text-center">
                                 <div>
