@@ -7,7 +7,6 @@ import { PrimaryFeatures } from '@/components/PrimaryFeatures'
 import { SecondaryFeatures } from '@/components/SecondaryFeatures'
 import { Testimonials } from '@/components/Testimonials'
 import HowItWorks from '@/components/HowItWorks'
-import FeaturedBuilds from '@/components/FeaturedBuilds';
 import { storefront } from 'utils'
 import Link from 'next/link'
 import { useState } from 'react'
@@ -68,24 +67,24 @@ export function featuredBuilds(props) {
               const specs = product.metafield.value
               const image = product.images.edges[0].node
               return (
-                // <div className="grid grid-cols-3" key={i}>
-                <div className="h-full lg:flex" key={i}>
-                  <Link
-                    key={product.handle}
-                    href={`/build-your-pc/products/${product.handle}`}
-                  >
-                    <a className="group col-span-2">
-                      <div className="rounded-l">
-                        <img
-                          src={image.transformedSrc}
-                          alt={image.altText}
-                          className="object-cover object-center duration-100 ease-in group-hover:opacity-75"
-                        />
-                      </div>
-                    </a>
-                  </Link>
-                  {/* <div className="col-span-1 h-full w-full bg-secondary rounded-r px-5 pb-5 flex flex-col justify-between pr-20"> */}
-                  <div className="col-span-1 flex h-full w-full flex-col justify-between rounded-r bg-secondary px-5 pb-5 pr-20">
+                <div className="lg:flex h-full" key={i}>
+                  <div className="flex-1">
+                    <Link
+                      key={product.handle}
+                      href={`/build-your-pc/products/${product.handle}`}
+                    >
+                      <a className="group col-span-2 h-full">
+                        <div className="rounded-l h-full">
+                          <img
+                            src={image.transformedSrc}
+                            alt={image.altText}
+                            className="object-cover object-center h-full duration-100 ease-in group-hover:opacity-75"
+                          />
+                        </div>
+                      </a>
+                    </Link>
+                  </div>
+                  <div className="flex-1 flex flex-col justify-between rounded-r bg-secondary px-5 pb-5 pr-20">
                     <div>
                       <div className="mt-4 mb-5 flex items-center justify-between text-base font-medium">
                         <h3 className="text-lg">{product.title}</h3>
@@ -120,6 +119,7 @@ export function featuredBuilds(props) {
               )
             })}
           </Carousel>
+
         </div>
       </div>
     </Container>

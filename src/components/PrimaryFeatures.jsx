@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react"
 import { Button } from '@/components/Button'
 import { Container } from '@/components/Container'
+import Link from "next/link";
 
 function Typewriter({ texts }) {
   const [currentText, setCurrentText] = useState('');
@@ -62,13 +63,14 @@ export function PrimaryFeatures() {
               Unleash your gaming potential with a custom-built PC designed just for you. From cutting-edge components to personalized support, we'll help you dominate the competition and achieve victory.
             </p>
             <div className="mt-8 flex flex-wrap gap-x-6 gap-y-4">
-              <Button
-                href="https://www.youtube.com/watch?v=dQw4w9WgXcQ"
-                variant="outline"
-                className="bg-white"
-              >
-                <span>Explore the collection</span>
-              </Button>
+              <Link href="/prebuilt-pcs">
+                <Button
+                  variant="outline"
+                  className="bg-white"
+                >
+                  <span>Explore the collection</span>
+                </Button>
+              </Link>
             </div>
           </div>
           <div className="sm:block lg:hidden col-span-full mt-10">

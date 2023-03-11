@@ -39,7 +39,7 @@ const Carousel = ({ children }) => {
             >
                 &rarr;
             </button>
-            <div className="h-[33.8rem] relative overflow-hidden">
+            <div className="h-[33.8rem] relative overflow-x-hidden">
                 <div
                     className="absolute h-full w-full"
                     ref={carouselRef}

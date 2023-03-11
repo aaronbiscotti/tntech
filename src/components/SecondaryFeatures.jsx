@@ -165,7 +165,7 @@ function FeaturesDesktop() {
                   ...feature,
                   name: (
                     <Tab className="outline-none">
-                      <span className="absolute inset-0 outline-none" />
+                      <span className="bg-black inset-0 outline-none" />
                       {feature.name}
                     </Tab>
                   ),
