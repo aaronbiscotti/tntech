@@ -121,9 +121,9 @@ export default function starter({ products }) {
           </Transition.Root>
 
           <main>
-            <div className="relative mx-auto max-w-3xl px-4 sm:px-6 lg:max-w-7xl lg:px-8">
+            <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:max-w-7xl lg:px-8 relative">
               {/* Product grid */}
-              <div className="mb-10 bg-cover bg-top bg-no-repeat py-5 text-center">
+              <div className="mb-20 bg-cover bg-top bg-no-repeat py-5 text-center">
                 <div>
                   <h1 className="font-[Anton] text-6xl uppercase">
                     Starter Series
@@ -146,7 +146,7 @@ export default function starter({ products }) {
 
                     return (
                       <div key={i}>
-                        <div className="grid grid-cols-4">
+                        <div className="md:grid md:grid-cols-4">
                           <Link
                             key={product.handle}
                             href={`/build-your-pc/products/${product.handle}`}

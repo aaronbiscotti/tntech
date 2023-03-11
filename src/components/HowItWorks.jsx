@@ -27,7 +27,7 @@ const perks = [
 
 export default function HowItWorks() {
   return (
-    <div className="bg-gray-50 mt-20 relative h-full" id="how-it-works">
+    <div className="bg-gray-50 sm:mt-20 relative h-full" id="how-it-works">
       {/* <img src="/leftside.png" className="absolute h-full" />
       <img src="/right.png" className="absolute h-full right-0" /> */}
       <div className="max-w-7xl mx-auto py-24 sm:px-4 sm:py-32 lg:px-8">

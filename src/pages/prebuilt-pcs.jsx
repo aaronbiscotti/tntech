@@ -94,9 +94,9 @@ export default function starter({ products }) {
                     </Transition.Root>
 
                     <main>
-                        <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:max-w-7xl lg:px-8 relative">
+                        <div className="max-w-3xl -mt-20 mx-auto px-4 sm:px-6 lg:max-w-7xl lg:px-8 relative">
                             {/* Product grid */}
-                            <div className="py-20 text-center mb-10 bg-cover bg-no-repeat bg-top">
+                            <div className="sm:py-20 text-center mb-10 bg-cover bg-no-repeat bg-top">
                                 <div>
                                     <h1 className="text-6xl font-[Anton] uppercase">Complete Series</h1>
                                     <p className="mt-4 max-w-3xl mx-auto text-base">
@@ -116,7 +116,7 @@ export default function starter({ products }) {
                                         const image = product.images.edges[0].node
                                         return (
                                             <div key={i}>
-                                                <div className="grid grid-cols-4">
+                                                <div className="md:grid md:grid-cols-4">
                                                     <Link key={product.handle} href={`/build-your-pc/products/${product.handle}`}>
                                                         <a className="group col-span-2">
                                                             <div className="rounded-l h-full max-w-30 overflow-hidden">
@@ -152,7 +152,7 @@ export default function starter({ products }) {
                                 </div>
                             </section>
 
-                            <section aria-labelledby="featured-heading" className="relative mt-16 rounded-lg overflow-hidden lg:h-96 mb-10">
+                            <section aria-labelledby="featured-heading" className="hidden md:block relative mt-16 rounded-lg overflow-hidden lg:h-96 mb-10">
                                 <div className="absolute inset-0 bg-[#F5F5F8]">
                                     <img src="/computer.svg" className="absolute -right-[150px] -top-[250px]" />
                                 </div>

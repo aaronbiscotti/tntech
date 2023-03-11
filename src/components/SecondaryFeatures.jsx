@@ -144,19 +144,8 @@ function FeaturesMobile() {
     <div className="-mx-4 mt-20 space-y-10 overflow-hidden px-4 sm:-mx-6 sm:px-6 lg:hidden">
       {features.map((feature) => (
         <div key={feature.name}>
-          <Feature feature={feature} className="mx-auto max-w-2xl" isActive />
+          <Feature feature={feature} className={`p-5 rounded-lg ${feature.background} mx-auto max-w-2xl`} isActive />
           <hr></hr>
-          {/* <div className="relative mt-10 pb-10">
-            <div className="absolute -inset-x-4 bottom-0 top-8 bg-slate-200 sm:-inset-x-6" />
-            <div className="relative mx-auto aspect-[844/428] w-[52.75rem] overflow-hidden rounded-xl bg-white shadow-lg shadow-slate-900/5 ring-1 ring-slate-500/10">
-              <Image
-                src={feature.image}
-                alt=""
-                layout="fill"
-                sizes="52.75rem"
-              />
-            </div>
-          </div> */}
         </div>
       ))}
     </div>
@@ -215,7 +204,7 @@ export function SecondaryFeatures() {
         <div className="mx-auto max-w-2xl md:text-center">
           <h2
             id="secondary-features-title"
-            className="font-[Anton] text-3xl uppercase text-main sm:text-6xl"
+            className="font-[Anton] text-6xl uppercase text-main sm:text-6xl"
           >
             Change the way you game.
           </h2>

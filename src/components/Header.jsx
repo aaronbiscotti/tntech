@@ -8,7 +8,7 @@ import { EyeIcon } from '@heroicons/react/solid'
 const navigation = [
   { name: 'Starter', href: '/build-your-pc/starter', current: false },
   { name: 'Casual', href: '/build-your-pc/casual', current: false },
-  { name: 'Prodify', href: '/build-your-pc/prodigy', current: false },
+  { name: 'Prodigy', href: '/build-your-pc/prodigy', current: false },
 ]
 
 function classNames(...classes) {
@@ -17,7 +17,7 @@ function classNames(...classes) {
 
 export function Header() {
   return (
-    <Disclosure as="nav" className="bg-gray-800">
+    <Disclosure as="nav" className=" bg-gray-800">
       {({ open }) => (
         <>
           <div className="mx-auto max-w-7xl px-4 py-3 sm:px-6 lg:px-8">
@@ -43,7 +43,7 @@ export function Header() {
                         alt="TnTech"
                       />
                       <h1 className="hidden text-2xl font-bold text-white md:block">
-                        TnTech
+                        TNTech
                       </h1>
                     </div>
                   </Link>

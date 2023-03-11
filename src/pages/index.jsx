@@ -6,8 +6,6 @@ import { Header } from '@/components/Header'
 import { PrimaryFeatures } from '@/components/PrimaryFeatures'
 import { SecondaryFeatures } from '@/components/SecondaryFeatures'
 import { Testimonials } from '@/components/Testimonials'
-import { Pricing } from '@/components/Pricing'
-import { About } from '@/components/About'
 import HowItWorks from '@/components/HowItWorks'
 import FeaturedBuilds from '@/components/FeaturedBuilds';
 import { storefront } from 'utils'
@@ -38,7 +36,7 @@ export default function Home({ products }) {
         <section
           id="featured"
           aria-labelledby="pricing-title"
-          className="relative mt-10 scroll-mt-14 sm:scroll-mt-32"
+          className="relative -mt-20 sm:mt-0"
         >
           {/* <FeaturedBuilds props={products}/> */}
           {featuredBuilds({ products })}
@@ -60,7 +58,7 @@ export function featuredBuilds(props) {
     <Container className="relative flex h-full w-full items-center justify-between">
       <div className="relative h-full w-full bg-white">
         <div className="relative h-full max-w-7xl py-16">
-          <h2 className="mb-10 text-center font-[Anton] text-6xl uppercase text-gray-900">
+          <h2 className="mb-10 sm:text-center font-[Anton] text-6xl uppercase text-gray-900">
             FEATURED BUILDS
           </h2>
 
