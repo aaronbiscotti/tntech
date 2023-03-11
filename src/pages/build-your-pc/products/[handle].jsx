@@ -37,7 +37,7 @@ export default function ProductPage({ product }) {
     return (
         <>
             <Header />
-            <div className="bg-white">
+            <div className="bg-white flex justify-center">
                 <div className="pt-6">
                     <div className="mx-3 max-w-2xl px-4 pt-10 pb-16 sm:px-6 lg:grid lg:max-w-7xl lg:grid-cols-4 lg:grid-rows-[auto,auto,1fr] lg:gap-x-8 lg:px-8 lg:pt-16 lg:pb-24">
                         <div className="lg:col-span-2 lg:border-r lg:border-gray-200 lg:pr-8">
@@ -85,7 +85,7 @@ export default function ProductPage({ product }) {
                             <div className="relative rounded-lg max-w-xl">
                                 <img src={featuredImage.node.url} className="object-cover rounded-lg" />
                             </div>
-                            <div className="flex justify-center mt-2 pl-[115px] space-x-2 overflow-x-auto">
+                            <div className="flex mt-2 space-x-2 overflow-x-auto">
                                 {images.map((image, i) => (
                                     <img key={i} src={image.node.url} alt={image.altText} className="h-14 object-cover cursor-pointer rounded-lg mb-4" onClick={() => {
                                         setFeaturedImage(image)
