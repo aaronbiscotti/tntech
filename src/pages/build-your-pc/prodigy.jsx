@@ -94,7 +94,7 @@ export default function starter({ products }) {
                     </Transition.Root>
 
                     <main>
-                        <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:max-w-7xl lg:px-8 relative">
+                        <div className="max-w-3xl mx-auto mb-20 px-4 sm:px-6 lg:max-w-7xl lg:px-8 relative">
                             {/* Product grid */}
                             <div className="mb-20 bg-cover bg-top bg-no-repeat py-5 text-center">
                                 <div>
@@ -117,14 +117,14 @@ export default function starter({ products }) {
   
                                         return (
                                             <div key={i}>
-                                                <div className="grid grid-cols-4">
+                                                <div className="md:grid md:grid-cols-4">
                                                     <Link key={product.handle} href={`/build-your-pc/products/${product.handle}`}>
                                                         <a className="group col-span-2">
                                                             <div className="rounded-l h-full max-w-30 overflow-hidden">
                                                                 <img
                                                                     src={image.transformedSrc}
                                                                     alt={image.altText}
-                                                                    className="h-full object-center object-cover group-hover:opacity-75 duration-100 ease-in"
+                                                                    className="max-h-[400px] only:h-full object-center object-cover group-hover:opacity-75 duration-100 ease-in"
                                                                 />
                                                             </div>
                                                         </a>
