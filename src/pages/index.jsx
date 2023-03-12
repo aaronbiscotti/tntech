@@ -61,7 +61,7 @@ export function featuredBuilds(props) {
             FEATURED BUILDS
           </h2>
 
-          <Carousel className="h-full w-full">
+          <Carousel>
             {products.edges.map((item, i) => {
               const product = item.node
               const specs = product.metafield.value

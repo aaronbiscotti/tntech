@@ -4,6 +4,7 @@ const Carousel = ({ children }) => {
     const [currentIndex, setCurrentIndex] = useState(0);
     const [previewIndex, setPreviewIndex] = useState(1);
     const carouselRef = useRef(null);
+    const [height, setHeight] = useState(0);
 
     const handleNext = () => {
         const nextIndex = currentIndex === children.length - 1 ? 0 : currentIndex + 1;
@@ -25,8 +26,15 @@ const Carousel = ({ children }) => {
         return () => clearInterval(intervalId);
     }, [currentIndex]);
 
+    useEffect(() => {
+        if (carouselRef.current) {
+            const newHeight = carouselRef.current.clientHeight;
+            setHeight(newHeight);
+        }
+    }, [currentIndex]);
+
     return (
-        <div className="h-[33.8rem] relative">
+        <div className="relative" style={{ height: `${height}px` }}>
             <button
                 className="hidden lg:block absolute inset-y-0 -left-20 rounded z-10 p-3 px-5 h-20 my-auto bg-gray-800 text-white hover:bg-gray-900 opacity-100 hover:opacity-80 duration-300 ease-in-out"
                 onClick={handlePrev}
@@ -39,9 +47,9 @@ const Carousel = ({ children }) => {
             >
                 &rarr;
             </button>
-            <div className="h-[33.8rem] relative overflow-x-hidden">
+            <div className="flex flex-col h-full relative overflow-y-hidden overflow-x-hidden">
                 <div
-                    className="absolute h-full w-full"
+                    className="absolute w-full flex flex-grow"
                     ref={carouselRef}
                     style={{
                         display: "flex",
@@ -50,20 +58,11 @@ const Carousel = ({ children }) => {
                     }}
                 >
                     {children.map((child, index) => (
-                        <div
-                            key={index}
-                            className="h-full w-full"
-                            style={{ flex: "0 0 100%" }}
-                        >
+                        <div key={index} className="w-full" style={{ flex: "0 0 100%" }}>
                             {child}
                         </div>
                     ))}
                 </div>
-                {/* <div className="absolute inset-y-0 right-0 w-1/3">
-                    <div className="h-full w-full opacity-75 blur-2">
-                        {children[previewIndex]}
-                    </div>
-                </div> */}
             </div>
         </div>
     );
