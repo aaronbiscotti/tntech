@@ -67,7 +67,7 @@ export function featuredBuilds(props) {
               const specs = product.metafield.value
               const image = product.images.edges[0].node
               return (
-                <div className="lg:flex h-full" key={i}>
+                <div className="md:flex h-full" key={i}>
                   <div className="flex-1">
                     <Link
                       key={product.handle}
@@ -78,15 +78,16 @@ export function featuredBuilds(props) {
                           <img
                             src={image.transformedSrc}
                             alt={image.altText}
-                            className="object-cover object-center h-full duration-100 ease-in group-hover:opacity-75"
+                            className=" h-full object-cover object-center duration-100 ease-in group-hover:opacity-75"
+                            // mx-auto h-[20rem] md:h-full
                           />
                         </div>
                       </a>
                     </Link>
                   </div>
-                  <div className="flex-1 flex flex-col justify-between rounded-r bg-secondary px-5 pb-5 pr-20">
-                    <div>
-                      <div className="mt-4 mb-5 flex items-center justify-between text-base font-medium">
+                  <div className="flex-1 flex flex-col justify-between rounded-r bg-secondary md:mx-0 px-5 pb-5 md:pr-20">
+                    <div className="">
+                      <div className="mt-2 mb-3 md:mt-4 md:mb-5 flex items-center justify-between text-base font-medium">
                         <h3 className="text-lg">{product.title}</h3>
                       </div>
                       <ul>
@@ -95,7 +96,7 @@ export function featuredBuilds(props) {
                             key={i}
                             className="flex items-center font-display text-sm"
                           >
-                            <img src={icons[i]} className="h-10 w-10" />
+                            <img src={icons[i]} className="h-8 w-8 md:h-10 md:w-10" />
                             {spec}
                           </li>
                         ))}
@@ -109,7 +110,7 @@ export function featuredBuilds(props) {
                         <p className="text-2xl font-bold">
                           ${product.priceRange.minVariantPrice.amount}
                         </p>
-                        <div className="mt-5 flex w-full cursor-pointer items-center justify-center rounded-md bg-gray-900 py-3 font-display text-white duration-300 ease-in-out hover:opacity-80">
+                        <div className="mt-6 flex w-full cursor-pointer items-center justify-center rounded-md bg-gray-900 py-3 font-display text-white duration-300 ease-in-out hover:opacity-80">
                           Buy now
                         </div>
                       </div>
