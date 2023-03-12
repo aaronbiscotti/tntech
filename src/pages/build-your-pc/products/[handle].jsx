@@ -45,6 +45,18 @@ export default function ProductPage({ product }) {
                         <div className="mt-4 lg:row-span-3 lg:col-span-2 lg:mt-0">
                             <h1 className="text-4xl font-[Anton] uppercase text-main sm:text-5xl">{product.title}</h1>
                             <div className="w-[100px] h-1 bg-black mt-4 mb-7" />
+                            <div className="lg:hidden lg:col-span-2 lg:col-start-1 lg:border-r lg:border-gray-200 lg:pb-16 lg:pr-8">
+                                <div className="relative rounded-lg max-w-xl">
+                                    <img src={featuredImage.node.url} className="object-cover rounded-lg" />
+                                </div>
+                                <div className="flex mt-2 space-x-2 overflow-x-auto">
+                                    {images.map((image, i) => (
+                                        <img key={i} src={image.node.url} alt={image.altText} className="h-14 object-cover cursor-pointer rounded-lg mb-4" onClick={() => {
+                                            setFeaturedImage(image)
+                                        }} />
+                                    ))}
+                                </div>
+                            </div>
                             <h1 className="text-3xl font-display mt-3 text-main sm:text-3xl">${product.priceRange.minVariantPrice.amount}</h1>
                             <div className="mt-5">
                                 <div className="space-y-6">
@@ -81,7 +93,7 @@ export default function ProductPage({ product }) {
                             </form>
                         </div>
 
-                        <div className="lg:col-span-2 lg:col-start-1 lg:border-r lg:border-gray-200 lg:pb-16 lg:pr-8">
+                        <div className="hidden lg:block lg:col-span-2 lg:col-start-1 lg:border-r lg:border-gray-200 lg:pb-16 lg:pr-8">
                             <div className="relative rounded-lg max-w-xl">
                                 <img src={featuredImage.node.url} className="object-cover rounded-lg" />
                             </div>
