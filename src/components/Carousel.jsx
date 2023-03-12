@@ -26,7 +26,7 @@ const Carousel = ({ children }) => {
     }, [currentIndex]);
 
     return (
-        <div className="h-[33.8rem] relative">
+        <div className="h-[35rem] relative">
             <button
                 className="hidden lg:block absolute inset-y-0 -left-20 rounded z-10 p-3 px-5 h-20 my-auto bg-gray-800 text-white hover:bg-gray-900 opacity-100 hover:opacity-80 duration-300 ease-in-out"
                 onClick={handlePrev}
@@ -39,7 +39,7 @@ const Carousel = ({ children }) => {
             >
                 &rarr;
             </button>
-            <div className="h-[33.8rem] relative overflow-x-hidden">
+            <div className="h-[35rem] relative overflow-x-hidden">
                 <div
                     className="absolute h-full w-full"
                     ref={carouselRef}
