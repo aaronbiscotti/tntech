@@ -4,7 +4,7 @@ const Carousel = ({ children }) => {
     const [currentIndex, setCurrentIndex] = useState(0);
     const [previewIndex, setPreviewIndex] = useState(1);
     const carouselRef = useRef(null);
-    const [height, setHeight] = useState(0);
+    const [childHeight, setChildHeight] = useState(0);
 
     const handleNext = () => {
         const nextIndex = currentIndex === children.length - 1 ? 0 : currentIndex + 1;
@@ -28,13 +28,15 @@ const Carousel = ({ children }) => {
 
     useEffect(() => {
         if (carouselRef.current) {
-            const newHeight = carouselRef.current.clientHeight;
-            setHeight(newHeight);
+            const child = carouselRef.current.children[currentIndex];
+            setChildHeight(child.offsetHeight);
         }
     }, [currentIndex]);
 
+    const parentHeight = childHeight;
+
     return (
-        <div className="relative" style={{ height: `${height}px` }}>
+        <div className="relative">
             <button
                 className="hidden lg:block absolute inset-y-0 -left-20 rounded z-10 p-3 px-5 h-20 my-auto bg-gray-800 text-white hover:bg-gray-900 opacity-100 hover:opacity-80 duration-300 ease-in-out"
                 onClick={handlePrev}
@@ -47,7 +49,10 @@ const Carousel = ({ children }) => {
             >
                 &rarr;
             </button>
-            <div className="flex flex-col h-full relative overflow-y-hidden overflow-x-hidden">
+            <div
+                className="flex flex-col relative overflow-x-hidden overflow-y-hidden"
+                style={{ height: parentHeight }}
+            >
                 <div
                     className="absolute w-full flex flex-grow"
                     ref={carouselRef}
@@ -58,10 +63,14 @@ const Carousel = ({ children }) => {
                     }}
                 >
                     {children.map((child, index) => (
-                        <div key={index} className="w-full" style={{ flex: "0 0 100%" }}>
-                            {child}
-                        </div>
-                    ))}
+                      <div
+                          key={index}
+                          className="w-full bg-black"
+                          style={{ flex: "0 0 100%" }}
+                      >
+                          {child}
+                      </div>
+                  ))}
                 </div>
             </div>
         </div>
