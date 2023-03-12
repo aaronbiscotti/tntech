@@ -78,8 +78,7 @@ export function featuredBuilds(props) {
                           <img
                             src={image.transformedSrc}
                             alt={image.altText}
-                            className=" h-full object-cover object-center duration-100 ease-in group-hover:opacity-75"
-                            // mx-auto h-[20rem] md:h-full
+                            className="w-full object-cover object-center duration-100 ease-in group-hover:opacity-75"
                           />
                         </div>
                       </a>
