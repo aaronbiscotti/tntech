@@ -55,8 +55,8 @@ export function featuredBuilds(props) {
 
   return (
     <Container className="relative flex w-full items-center justify-between">
-      <div className="relative h-full w-full bg-white">
-        <div className="relative h-full max-w-7xl py-16">
+      <div className="relative h-full w-full mt-20 sm:mt-0 bg-white">
+        <div className="relative h-full max-w-7xl mt-10 sm:mt-0 sm:py-16">
           <h2 className="mb-10 sm:text-center font-[Anton] text-6xl uppercase text-gray-900">
             FEATURED BUILDS
           </h2>

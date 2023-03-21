@@ -1,6 +1,5 @@
 // createCheckout.js
 import { GraphQLClient } from 'graphql-request';
-import client from './shopifyClient';
 
 const graphQLClient = new GraphQLClient('https://tntechshop.myshopify.com/api/2023-01/graphql.json', {
     headers: {
