@@ -13,28 +13,6 @@ export async function storefront(query, variables = {}) {
     return response.json()
 }
 
-export async function createCheckout(id, quantity) {
-    const query = `
-      mutation {
-        checkoutCreate(input: {
-          lineItems: [{ variantId: "${id}", quantity: ${quantity}}]
-        }) {
-          checkout {
-            id
-            webUrl
-          }
-        }
-      }`;
-
-    const response = await ShopifyData(query);
-
-    const checkout = response.data.checkoutCreate.checkout
-        ? response.data.checkoutCreate.checkout
-        : [];
-
-    return checkout;
-}
-
 export async function updateCheckout(id, lineItems) {
     const lineItemsObject = lineItems.map((item) => {
         return `{

@@ -1,8 +1,9 @@
 import { Header } from '@/components/Header'
 import { Footer } from '@/components/Footer'
-import { storefront } from 'utils'
+import { storefront } from 'utils';
 import { useState } from 'react';
 import ReactHtmlParser from 'react-html-parser';
+import { createCheckout } from 'utils/createCheckout';
 
 const icons = [
     "https://content.ibuypower.com/cdn-cgi/image/width=3840,format=auto,quality=75/https://content.ibuypower.com/Images/Base/icon_cpu.svg",
@@ -26,14 +27,24 @@ export default function ProductPage({ product }) {
             );
         }
     };
-    const checkout = async (e) => {
+
+    async function checkout(e) {
         e.preventDefault();
         setIsLoading(true);
-        const { data } = await storefront(checkoutMutation, { variantId });
-        const { webUrl } = data.checkoutCreate.checkout;
+        try {
+            const checkout = await createCheckout(variantId, 1);
+            if (checkout && checkout.webUrl) {
+                window.location.href = checkout.webUrl;
+            } else {
+                console.error('Checkout URL not found');
+            }
+        } catch (error) {
+            console.error('Error handling checkout:', error);
+        } finally {
+            setIsLoading(false);
+        }
+    }
 
-        window.location.href = webUrl;
-    };
     return (
         <>
             <Header />
@@ -50,7 +61,8 @@ export default function ProductPage({ product }) {
                                     <img src={featuredImage.node.url} className="object-cover rounded-lg" />
                                 </div>
                                 <div className="flex mt-2 space-x-2 overflow-x-auto">
-                                    {images.map((image, i) => (
+                                    {images.map((image
+                                        , i) => (
                                         <img key={i} src={image.node.url} alt={image.altText} className="h-14 object-cover cursor-pointer rounded-lg mb-4" onClick={() => {
                                             setFeaturedImage(image)
                                         }} />
@@ -168,22 +180,6 @@ const singleProductQuery = gql`
                         id
                     }
                 }
-            }
-        }
-    }
-`
-
-const checkoutMutation = gql`
-    mutation CheckoutCreate($variantId: ID!) {
-        checkoutCreate(input: {
-            lineItems: {
-                variantId: $variantId,
-                quantity: 1
-            } 
-        }) {
-            checkout {
-                id
-                webUrl
             }
         }
     }
