@@ -37,12 +37,12 @@ export default function HowItWorks() {
         <div className="max-w-2xl mx-auto px-4 grid grid-cols-1 gap-y-12 gap-x-8 lg:max-w-none lg:grid-cols-2 lg:gap-y-16">
           {perks.map((perk) => (
             <div key={perk.name} className="sm:flex">
-              <div className="sm:flex-shrink-0">
+              <div className="sm:flex-shrink-0 flex justify-center sm:justify-start">
                 <div className="flow-root">
                   <img className="w-28 h-24" src={perk.imageSrc} alt="" />
                 </div>
               </div>
-              <div className="mt-3 sm:mt-0 sm:ml-3">
+              <div className="mt-3 sm:mt-0 sm:ml-3 text-center sm:text-left">
                 <h3 className="text-xl font-medium text-main">{perk.name}</h3>
                 <p className="mt-2 text-main">{perk.description}</p>
               </div>
