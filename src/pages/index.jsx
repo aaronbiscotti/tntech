@@ -9,7 +9,6 @@ import { Testimonials } from '@/components/Testimonials'
 import HowItWorks from '@/components/HowItWorks'
 import { storefront } from 'utils'
 import Link from 'next/link'
-import { useState } from 'react'
 import Carousel from '@/components/Carousel'
 
 const icons = [
@@ -28,6 +27,8 @@ export default function Home({ products }) {
           name="description"
           content="Unleash the full potential of your gaming with our intuitive building services. Complexity becomes a thing of the past, as we've distilled all the mission-critical features for a seamless gaming experience."
         />
+        <link rel="preload" href="/fonts/anton.ttf" as="font" type="font/ttf" crossOrigin="anonymous" />
+        <link rel="preload" href="/fonts/hankengrotesk.ttf" as="font" type="font/ttf" crossOrigin="anonymous" />
       </Head>
       <Header />
       <main>
@@ -126,13 +127,12 @@ export function featuredBuilds(props) {
   )
 }
 
-export async function getStaticProps() {
+export async function getServerSideProps() {
   const { data } = await storefront(productsQuery)
   return {
     props: {
       products: data.products,
     },
-    revalidate: 60,
   }
 }
 

@@ -11,6 +11,8 @@ export default function Document(props) {
     >
       <Head>
         <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preload" href="/fonts/anton.ttf" as="font" type="font/ttf" crossOrigin="anonymous" />
+        <link rel="preload" href="/fonts/hankengrotesk.ttf" as="font" type="font/ttf" crossOrigin="anonymous" />
         <link
           rel="preconnect"
           href="https://fonts.gstatic.com"
