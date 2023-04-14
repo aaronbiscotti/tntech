@@ -1,109 +1,91 @@
-import React from "react";
-import Footer from "./Footer.jsx";
-import Nav from "./Nav.jsx";
-import About1 from "../assets/about-1.png";
-import About2 from "../assets/about-2.png";
-import About3 from "../assets/about-3.png";
-import About4 from "../assets/about-4.png";
-import About5 from "../assets/about-5.png";
+import { ButtonLink } from '@/components/Button'
+import { Container } from '@/components/Container'
+import { GridPattern } from '@/components/GridPattern'
+import Carousel from './Carousel'
 
-const about = [
-  {
-    heading: "A Family That Keeps On Growing",
-    body: "We always aim to please the home market, supplying great computers and hardware at great prices to non-corporate customers, through our large Melbourne CBD showroom and our online store.\n\nShop management approach fosters a strong customer service focus in our staff. We prefer to cultivate long-term client relationships rather than achieve quick sales, demonstrated in the measure of our long-term success.",
-    image: About1,
-  },
-  {
-    heading: "shop.com",
-    body: "Shop is a proudly Australian owned, Melbourne based supplier of I.T. goods and services, operating since 1991. Our client base encompasses individuals, small business, corporate and government organisations. We provide complete business IT solutions, centred on high quality hardware and exceptional customer service.",
-    image: About2,
-  },
-  {
-    heading: "You're In Safe Hands",
-    body: "Experience a 40% boost in computing from last generation. MSI Desktop equips the 10th Gen. Intel® Core™ i7 processor with the upmost computing power to bring you an unparalleled gaming experience.\n\n*Performance compared to i7-9700. Specs varies by model.",
-    image: About3,
-  },
-  {
-    heading: "The Highest Quality of Products",
-    body: "We guarantee the highest quality of the products we sell. Several decades of successful operation and millions of happy customers let us feel certain about that. Besides, all items we sell pass thorough quality control, so no characteristics mismatch can escape the eye of our professionals.",
-    image: About4,
-  },
-  {
-    heading: "Delivery to All Regions",
-    body: "We deliver our goods all across Australia. No matter where you live, your order will be shipped in time and delivered right to your door or to any other location you have stated. The packages are handled with utmost care, so the ordered products will be handed to you safe and sound, just like you expect them to be.",
-    image: About5,
-  },
-];
+const products = [
+    {
+        id: 1,
+        name: 'Basic Tee',
+        href: '#',
+        imageSrc: 'https://tailwindui.com/img/ecommerce-images/product-page-01-related-product-01.jpg',
+        imageAlt: "Front of men's Basic Tee in black.",
+        price: '$35',
+        color: 'Black',
+    },
+    {
+        id: 1,
+        name: 'Basic Tee',
+        href: '#',
+        imageSrc: 'https://tailwindui.com/img/ecommerce-images/product-page-01-related-product-01.jpg',
+        imageAlt: "Front of men's Basic Tee in black.",
+        price: '$35',
+        color: 'Black',
+    },
+    {
+        id: 1,
+        name: 'Basic Tee',
+        href: '#',
+        imageSrc: 'https://tailwindui.com/img/ecommerce-images/product-page-01-related-product-01.jpg',
+        imageAlt: "Front of men's Basic Tee in black.",
+        price: '$35',
+        color: 'Black',
+    },
+    // More products...
+]
 
-const testimonials = [];
+export function About() {
+    return (
+        <section
+            id="pricing"
+            aria-labelledby="pricing-title"
+            className="relative scroll-mt-14 pt-16 sm:scroll-mt-32 sm:pt-15 mt-10 lg:pt-18"
+        >
+            <Container className="flex justify-between w-full items-center">
+                <div className="bg-white">
+                    <div className="mx-auto py-16 max-w-7xl">
+                        <h2 className="text-6xl font-[Anton] uppercase text-gray-900 mb-10">FEATURED BUILDS</h2>
+                        <div className="mt-6 grid grid-cols-1 gap-y-10 gap-x-6 sm:grid-cols-2 lg:grid-cols-4 xl:gap-x-8">
+                            {products.map((product) => (
+                                <div key={product.id} className="group relative">
+                                    <div className="min-h-80 aspect-w-1 aspect-h-1 w-full overflow-hidden rounded-md bg-gray-200 group-hover:opacity-75 lg:aspect-none lg:h-80">
+                                        <img
+                                            src={product.imageSrc}
+                                            alt={product.imageAlt}
+                                            className="h-full w-full object-cover object-center lg:h-full lg:w-full"
+                                        />
+                                    </div>
+                                    <div className="mt-4 flex justify-between">
+                                        <div>
+                                            <h3 className="text-sm text-gray-700">
+                                                <a href={product.href}>
+                                                    <span aria-hidden="true" className="absolute inset-0" />
+                                                    {product.name}
+                                                </a>
+                                            </h3>
+                                            <p className="mt-1 text-sm text-gray-500">{product.color}</p>
+                                        </div>
+                                        <p className="text-sm font-medium text-gray-900">{product.price}</p>
+                                    </div>
+                                </div>
+                            ))}
+                        </div>
+                    </div>
+                </div>
 
-const values = [
-  {
-    icon: "",
-    heading: "Product Support",
-    body: "Up to 3 years on-site warranty available for your peace of mind.",
-  },
-  {
-    icon: "",
-    heading: "Personal Account",
-    body: "With big discounts, free delivery and a dedicated support specialist.",
-  },
-  {
-    icon: "",
-    heading: "Amazing Savings",
-    body: "Up to 70% off new Products, you can be sure of the best price.",
-  },
-];
-const About = () => {
-  return (
-    <div className="">
-      <Nav />
-      <h1 className="text-black text-2xl mb-6 mx-48">About Us</h1>
-
-      {about.map((info, index) => {
-        if (index % 2 === 0) {
-          return (
-            <div className="bg-black flex justify-center items-center px-48 py-16 gap-x-32">
-              <div className="order-0">
-                <h1 className="text-4xl mb-8">{info.heading}</h1>
-                <p>{info.body}</p>
-              </div>
-              <img
-                className="w-1/2 h-1/2 object-cover"
-                src={info.image}
-                alt=""
-              ></img>
-            </div>
-          );
-        } else {
-          return (
-            <div className="bg-white text-black flex justify-center items-center px-48 py-16 gap-x-32">
-              <img
-                className="w-1/2 h-1/2 object-cover"
-                src={info.image}
-                alt=""
-              ></img>
-              <div className="order-0">
-                <h1 className="text-4xl mb-8">{info.heading}</h1>
-                <p>{info.body}</p>
-              </div>
-            </div>
-          );
-        }
-      })}
-
-      <div className="bg-[#F5F7FF] flex justify-center px-48 py-16 gap-x-32">
-        {values.map(value => (
-          <div className="text-black text-center">
-            <h3 className="font-bold">{value.heading}</h3>
-            <p>{value.body}</p>
-          </div>
-        ))}
-      </div>
-
-      <Footer />
-    </div>
-  );
-};
-
-export default About;
+                {/* <div>
+                    <p className="mt-8 uppercase font-title text-5xl text-main sm:text-6xl w-[600px]">
+                        BEST SELLERS
+                    </p>
+                    <p className="mt-4 text-lg max-w-3xl tracking-tight text-main">
+                        Welcome to TNTech, where gaming is our passion and building top-of-the-line gaming computers is our expertise. Our team know firsthand what it takes to deliver the best gaming experience- from selecting the most powerful processors and graphics cards, to choosing the perfect components for optimal cooling and speed, we’ve got you covered for your budget.
+                    </p>
+                </div>
+                <div className="relative">
+                    <img src="/hero_image.png" className="hover:scale-[1.02] duration-100 ease-in-out" />
+                    <img src="/element.svg" className="absolute top-10 right-1/3 h-3/4 -z-10 hover:scale-[1.04] duration-100 ease-in-out" />
+                </div> */}
+            </Container>
+        </section>
+    )
+}
