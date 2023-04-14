@@ -1,7 +1,7 @@
 // createCheckout.js
 import { GraphQLClient } from 'graphql-request';
 
-const graphQLClient = new GraphQLClient('https://tntechshop.myshopify.com/api/2023-01/graphql.json', {
+const graphQLClient = new GraphQLClient('https://tntechshop.myshopify.com/api/2023-04/graphql.json', {
     headers: {
         'Content-Type': 'application/json',
         'X-Shopify-Storefront-Access-Token': '429049546d68d4f0fb34eb364b557d35',
