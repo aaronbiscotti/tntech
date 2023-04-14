@@ -143,10 +143,12 @@ function FeaturesMobile() {
   return (
     <div className="-mx-4 mt-20 space-y-10 overflow-hidden px-4 sm:-mx-6 sm:px-6 lg:hidden">
       {features.map((feature) => (
-        <div key={feature.name}>
+        <>
+          <div key={feature.name} className={`${feature.background} p-5 rounded-lg`}>
           <Feature feature={feature} className={`p-5 rounded-lg ${feature.background} mx-auto max-w-2xl`} isActive />
+          </div>
           <hr></hr>
-        </div>
+        </>
       ))}
     </div>
   )
