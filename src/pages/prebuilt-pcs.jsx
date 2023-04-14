@@ -184,7 +184,7 @@ export default function starter({ products }) {
     )
 }
 
-export async function getStaticProps() {
+export async function getServerSideProps() {
     const { data } = await storefront(productsQuery)
     return {
         props: {

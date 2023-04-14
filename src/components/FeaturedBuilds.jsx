@@ -77,7 +77,7 @@ export default function FeaturedBuilds(props) {
  }
 
 
-export async function getStaticProps() {
+export async function getServerSideProps() {
    const { data } = await storefront(productsQuery)
    return {
      props: {
