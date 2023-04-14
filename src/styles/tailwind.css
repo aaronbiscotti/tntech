@@ -8,6 +8,19 @@
   min-height: 100%;
 }
 
+/* Anton font */
+@font-face {
+  font-family: 'Anton';
+  src: url('/fonts/anton.ttf') format('truetype');
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Hanken Grotesk';
+  src: url('/fonts/hankengrotesk.ttf') format('truetype');
+  font-display: swap;
+}
+
 p {
   font-family: Hanken Grotesk, sans-serif;
 }

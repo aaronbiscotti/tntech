@@ -157,7 +157,7 @@ export async function getStaticPaths() {
     }
 }
 
-export async function getStaticProps({ params }) {
+export async function getServerSideProps({ params }) {
     const { data } = await storefront(singleProductQuery, { handle: params.handle })
     return {
         props: {
