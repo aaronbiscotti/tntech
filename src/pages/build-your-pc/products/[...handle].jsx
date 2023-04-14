@@ -142,6 +142,7 @@ const gql = String.raw
 export async function getServerSideProps({ params }) {
     const handle = params.handle[0];
     const { data } = await storefront(singleProductQuery, { handle })
+    console.log("Data from API:", JSON.stringify(data, null, 2));
     return {
         props: {
             product: data.product,
