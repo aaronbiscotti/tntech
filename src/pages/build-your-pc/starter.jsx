@@ -248,7 +248,6 @@ export async function getServerSideProps() {
     props: {
       products: data.products,
     },
-    revalidate: 60,
   }
 }
 

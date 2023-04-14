@@ -89,7 +89,7 @@ export default function ProductPage({ product }) {
                                         {ReactHtmlParser(product.descriptionHtml, { transform })}
                                     </div>
                                 </div>
-                            </div> 
+                            </div>
                             <div className="mb-10">
                                 <h1 className="font-display font-semibold text-xl mb-2 mt-5">Specifications</h1>
                                 <ul>
@@ -139,31 +139,13 @@ export default function ProductPage({ product }) {
 }
 const gql = String.raw
 
-export async function getStaticPaths() {
-    const { data } = await storefront(gql`
-        {
-            products(first: 6) {
-                edges {
-                     node {
-                        handle
-                     }
-                }
-            }
-        }
-    `)
-    return {
-        paths: data.products.edges.map(product => ({ params: { handle: product.node.handle } })),
-        fallback: false,
-    }
-}
-
 export async function getServerSideProps({ params }) {
-    const { data } = await storefront(singleProductQuery, { handle: params.handle })
+    const handle = params.handle[0];
+    const { data } = await storefront(singleProductQuery, { handle })
     return {
         props: {
             product: data.product,
         },
-        revalidate: 60,
     }
 }
 
