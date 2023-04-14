@@ -2,7 +2,6 @@ import { useId, useState } from 'react'
 import Image from 'next/image'
 import { Tab } from '@headlessui/react'
 import clsx from 'clsx'
-
 import { Container } from '@/components/Container'
 import iteration1 from '@/images/screenshots/iteration1.png'
 import iteration2 from '@/images/screenshots/iteration2.png'
