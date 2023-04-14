@@ -51,8 +51,8 @@ export function PrimaryFeatures() {
     return () => clearTimeout(intervalId);
   }, []);
   return (
-    <div class="relative overflow-hidden py-20 sm:py-32 lg:pb-32 xl:pb-[20vh] xl:pt-[25vh]">
-      <div class="lg:block h-[500px] absolute top-0 left-0 w-full sm:h-full bg-no-repeat bg-cover bg-background bg-right-bottom sm:transform scale-x-[-1] sm:scale-x-[1]">
+    <div className="relative overflow-hidden py-20 sm:py-32 lg:pb-32 xl:pb-[20vh] xl:pt-[25vh]">
+      <div className="lg:block h-[500px] absolute top-0 left-0 w-full sm:h-full bg-no-repeat bg-cover bg-background bg-right-bottom sm:transform scale-x-[-1] sm:scale-x-[1]">
       </div>
 
       <Container>
