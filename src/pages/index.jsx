@@ -27,8 +27,6 @@ export default function Home({ products }) {
           name="description"
           content="Unleash the full potential of your gaming with our intuitive building services. Complexity becomes a thing of the past, as we've distilled all the mission-critical features for a seamless gaming experience."
         />
-        <link rel="preload" href="/fonts/anton.ttf" as="font" type="font/ttf" crossOrigin="anonymous" />
-        <link rel="preload" href="/fonts/hankengrotesk.ttf" as="font" type="font/ttf" crossOrigin="anonymous" />
       </Head>
       <Header />
       <main>
