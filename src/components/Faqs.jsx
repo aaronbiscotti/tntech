@@ -46,7 +46,7 @@ const data = {
   rows: [
     {
       title: <p className="font-semibold">Are these prebuilt rigs?</p>,
-      content: "No, we'll send you everything you need to build it yourself!",
+      content: "Yes, all of our PCs are ready to be up and running straight out of the box!",
     },
     {
       title: <p className="font-semibold">Can I finance my order?</p>,
@@ -57,17 +57,17 @@ const data = {
       content: "We'll send you a box with everything you need.",
     },
     {
-      title: <p className="font-semibold">How do I know if the computer I purchase has the performance I need it to have?</p>,
+      title: <p className="font-semibold">How do I know which PC fits my expectations?</p>,
       content:
-        'You can contact us and our 24/7 support will help you pick the perfect rig with details for every component included.',
+        'You can contact us via Instagram and our 24/7 support will help you pick the perfect rig.',
     },
     {
-      title: <p className="font-semibold">Something here?</p>,
-      content: 'Something else here',
+      title: <p className="font-semibold">How long will it take to receive my order?</p>,
+      content: 'Shipping times are dependent on your location however it should not exceed a week.',
     },
     {
-      title: <p className="font-semibold">Can we expect more inventory features?</p>,
-      content: 'In life it’s really better to never expect anything at all.',
+      title: <p className="font-semibold">What should I do if I am experiencing an issue with my product?</p>,
+      content: 'You can contact us via Instagram and our 24/7 support will get right back to you!',
     },
   ],
 }
