@@ -48,8 +48,8 @@ export function Footer() {
         <hr className="opacity-20" />
         <div className="mt-[15px] flex justify-between text-lg">
           <div className="opacity-50 flex gap-x-3">
-            <Link to="https://www.instagram.com/tntechshop/"><AiFillInstagram /></Link>
-            <Link to="https://www.linkedin.com/company/t-n-tech/"><AiFillLinkedin /></Link>
+            <a href="https://www.instagram.com/tntechshop/" target="_blank" rel="noreferrer"><AiFillInstagram /></a>
+            <a href="https://www.linkedin.com/company/t-n-tech/" target="_blank" rel="noreferrer"><AiFillLinkedin /></a>
           </div>
           <div className="mb-10">
             <p className="opacity-50 text-xs">© 2023 TNTech. All rights reserved.</p>

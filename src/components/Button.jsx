@@ -49,6 +49,11 @@ export function ButtonLink({
   className,
   ...props
 }) {
+  if (!href) {
+    console.error('ButtonLink component is missing href prop');
+    return null;
+  }
+
   return (
     <Link href={href}>
       <a
