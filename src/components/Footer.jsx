@@ -33,9 +33,9 @@ export function Footer() {
 
             <div>
               <h3 className="text-[12px] text-gray-400 font-bold mb-[30px]">
-                Laptops
+                Computers
               </h3>
-              {laptops.map((page, i) => (
+              {computers.map((page, i) => (
                 <div key={i}>
                   <a className="text-[12px] font-light" href={page.link}>
                     {page.name}
@@ -83,7 +83,7 @@ const desktopPCs = [
   },
 ];
 
-const laptops = [
+const computers = [
   {
     name: "Starter",
     link: "/build-your-pc/starter",
