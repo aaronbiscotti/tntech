@@ -64,22 +64,22 @@ export function Footer() {
 const information = [
   {
     name: "Terms & Conditions",
-    link: "https://docs.google.com/document/d/1MSMxsN5FBq8c0f3nHRu3u1QH10CTT6Oazz37Ly_WG7w/edit?usp=sharing",
+    link: "/terms-and-conditions",
   },
 ];
 
 const desktopPCs = [
   {
     name: "Build Your PC",
-    link: "#",
+    link: "/build-your-pc/starter",
   },
   {
     name: "Why TNTech",
-    link: "#",
+    link: "/build-your-pc/casual",
   },
   {
     name: "Support",
-    link: "#",
+    link: "/build-your-pc/prodigy",
   },
 ];
 
